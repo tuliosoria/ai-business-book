@@ -1,0 +1,57 @@
+{
+  "title": "A Brief History of Computers and AI",
+  "author": "Compiled",
+  "description": "Ten short chapters tracing the story of computing and artificial intelligence.",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "The Mechanical Beginnings",
+      "content": "Long before electronic computers, inventors built mechanical devices to compute. From the abacus to Babbage's Analytical Engine, mechanical computation laid groundwork for modern machines.\n\nThese early efforts taught engineers how to break complex problems into repeatable steps, a principle central to algorithmic thinking."
+    },
+    {
+      "id": 2,
+      "title": "Electrons and Binary",
+      "content": "The 20th century brought electronics: vacuum tubes, then transistors, enabling much faster and more reliable calculation. Binary arithmetic became the lingua franca of digital machines.\n\nComputers shrank and grew more powerful as hardware advanced, enabling new classes of programs and use-cases."
+    },
+    {
+      "id": 3,
+      "title": "The Software Revolution",
+      "content": "As hardware improved, software took center stage. Programming languages, compilers, and operating systems made computers accessible beyond specialists.\n\nSoftware introduced abstractions that let humans express complex ideas without wiring circuits directly."
+    },
+    {
+      "id": 4,
+      "title": "Early AI Dreams",
+      "content": "Researchers in the mid-20th century imagined machines that could think. Early AI work focused on symbolic reasoning, logic, and search.\n\nOptimism ran high, with pioneers predicting rapid progress — but the limits of available data and compute slowed expectations."
+    },
+    {
+      "id": 5,
+      "title": "Machine Learning Emerges",
+      "content": "Instead of explicitly programming every rule, researchers began to build systems that learn from data. Statistical methods and neural networks reappeared with new vigor.\n\nThis shift allowed systems to handle messy, real-world inputs like speech and images."
+    },
+    {
+      "id": 6,
+      "title": "The Data and Compute Era",
+      "content": "The internet and cheap storage produced massive datasets. Combined with faster hardware (GPUs, TPUs), researchers trained larger models and achieved breakthroughs in perception and language.\n\nAI moved from labs to products, powering search, recommendations, and assistants."
+    },
+    {
+      "id": 7,
+      "title": "Deep Learning and Representation",
+      "content": "Deep neural networks learned hierarchical representations, which proved remarkably effective across domains. Tasks once thought hard for machines — object recognition, translation — became tractable.\n\nThis success fueled investment and a rapid expansion of research."
+    },
+    {
+      "id": 8,
+      "title": "Interactions and Interfaces",
+      "content": "AI reshaped how people interact with computers: conversational agents, personalized interfaces, and adaptive systems changed expectations for software.\n\nDesigners began to think about ethics, fairness, and user trust as central parts of AI UX."
+    },
+    {
+      "id": 9,
+      "title": "Challenges and Governance",
+      "content": "With power came responsibility. The community grappled with bias, misuse, and safety. New governance, standards, and regulations emerged to guide responsible deployment.\n\nPublic discourse joined technical debates about long-term impacts."
+    },
+    {
+      "id": 10,
+      "title": "The Road Ahead",
+      "content": "Computing and AI continue to evolve together. From edge devices to large-scale models, the future mixes opportunity with hard questions about sustainability, equity, and trust.\n\nUnderstanding the history helps us shape a future where technology amplifies human flourishing."
+    }
+  ]
+}
