@@ -1,0 +1,341 @@
+% AI for Business Leaders
+% A Practical Guide to Understanding and Leveraging Artificial Intelligence
+\documentclass[11pt,a4paper,openright,twoside]{memoir}
+
+% ============================================
+% PACKAGES
+% ============================================
+
+% Encoding and fonts
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% Language
+\usepackage[english]{babel}
+
+% Graphics and colors
+\usepackage{graphicx}
+\usepackage[dvipsnames,svgnames,table]{xcolor}
+
+% Code listings (for prompt examples)
+\usepackage{listings}
+
+% Mathematics (minimal use)
+\usepackage{amsmath,amssymb}
+
+% Hyperlinks
+\usepackage[
+    colorlinks=true,
+    linkcolor=RoyalBlue,
+    citecolor=ForestGreen,
+    urlcolor=Maroon,
+    bookmarks=true,
+    bookmarksnumbered=true
+]{hyperref}
+
+% Better tables
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{array}
+
+% TikZ for diagrams
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, fit, backgrounds}
+
+% TikZ styles for diagrams
+\tikzset{
+    % Flowchart styles
+    startstop/.style={rectangle, rounded corners, minimum width=2.5cm, minimum height=0.8cm, text centered, draw=black, fill=blue!10},
+    process/.style={rectangle, minimum width=3cm, minimum height=0.8cm, text centered, draw=black, fill=white},
+    decision/.style={diamond, minimum width=2.5cm, minimum height=1cm, text centered, draw=black, fill=yellow!20, aspect=2},
+    arrow/.style={thick,->,>=Stealth},
+    % Business boxes
+    bizbox/.style={rectangle, rounded corners, minimum width=2cm, minimum height=1.2cm, text centered, draw=black, fill=#1!20},
+}
+
+% Quotations and epigraphs - memoir has built-in support
+\setlength{\epigraphwidth}{0.75\textwidth}
+\setlength{\epigraphrule}{0pt}
+
+% Index
+\usepackage{makeidx}
+\makeindex
+
+% ============================================
+% MEMOIR CUSTOMIZATION
+% ============================================
+
+% Chapter style
+\chapterstyle{madsen}
+
+% Page layout
+\setlrmarginsandblock{3cm}{2.5cm}{*}
+\setulmarginsandblock{2.5cm}{3cm}{*}
+\checkandfixthelayout
+
+% Headers and footers
+\makepagestyle{bizbook}
+\makeevenhead{bizbook}{\thepage}{}{\leftmark}
+\makeoddhead{bizbook}{\rightmark}{}{\thepage}
+\makeevenfoot{bizbook}{}{}{}
+\makeoddfoot{bizbook}{}{}{}
+\pagestyle{bizbook}
+
+% Part styling
+\renewcommand{\partnamefont}{\normalfont\huge\scshape}
+\renewcommand{\partnumfont}{\normalfont\huge\scshape}
+\renewcommand{\parttitlefont}{\normalfont\Huge\bfseries}
+
+% Fix TOC part number width
+\setlength{\cftpartnumwidth}{2.5em}
+
+% ============================================
+% PROMPT/CODE LISTING SETTINGS
+% ============================================
+
+\definecolor{promptbg}{RGB}{248,248,248}
+\definecolor{promptframe}{RGB}{200,200,200}
+\definecolor{prompttext}{RGB}{50,50,50}
+
+\lstset{
+    backgroundcolor=\color{promptbg},
+    frame=single,
+    rulecolor=\color{promptframe},
+    basicstyle=\small\ttfamily\color{prompttext},
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=4,
+    showstringspaces=false,
+    captionpos=b,
+    xleftmargin=1em,
+    xrightmargin=1em
+}
+
+% ============================================
+% CUSTOM ENVIRONMENTS
+% ============================================
+
+% Key insight box (blue)
+\newsavebox{\insightbox}
+\newenvironment{keyinsight}[1][Key Insight]{%
+    \begin{lrbox}{\insightbox}
+    \begin{minipage}{0.9\textwidth}
+    \textbf{#1}\par\smallskip
+}{%
+    \end{minipage}
+    \end{lrbox}
+    \par\medskip
+    \noindent
+    \colorbox{blue!10}{\usebox{\insightbox}}
+    \par\medskip
+}
+
+% Prompt example environment
+\newenvironment{promptexample}[1][Prompt Example]{%
+    \par\medskip
+    \noindent\textbf{#1}\par
+    \begin{quote}
+    \ttfamily\small
+}{%
+    \end{quote}
+    \par\medskip
+}
+
+% Exercise environment
+\newcounter{exercise}[chapter]
+\newenvironment{exercise}{%
+    \refstepcounter{exercise}
+    \par\medskip
+    \noindent\textbf{Exercise \theexercise:}
+}{%
+    \par\medskip
+}
+
+% Case study environment (green)
+\newcounter{casestudy}[chapter]
+\newenvironment{casestudy}[1]{%
+    \refstepcounter{casestudy}%
+    \par\bigskip\noindent
+    \colorbox{green!10}{\parbox{\dimexpr\textwidth-2\fboxsep}{\textbf{Case Study \thecasestudy: #1}}}%
+    \par\nopagebreak\smallskip
+    \begin{quote}
+}{%
+    \end{quote}
+    \par\bigskip
+}
+
+% Real example environment (teal)
+\newenvironment{realexample}[1][Real Example]{%
+    \par\medskip\noindent
+    \colorbox{teal!10}{\parbox{\dimexpr\textwidth-2\fboxsep}{\textbf{#1}}}%
+    \par\nopagebreak\smallskip
+    \begin{quote}
+}{%
+    \end{quote}
+    \par\medskip
+}
+
+% Warning/Pitfall environment (red)
+\newenvironment{warning}[1][Warning]{%
+    \par\medskip\noindent
+    \colorbox{red!10}{\parbox{\dimexpr\textwidth-2\fboxsep}{\textbf{#1}}}%
+    \par\nopagebreak\smallskip
+    \begin{quote}
+}{%
+    \end{quote}
+    \par\medskip
+}
+
+% Quick reference box (blue)
+\newenvironment{quickref}[1][Quick Reference]{%
+    \par\medskip\noindent
+    \colorbox{blue!10}{\parbox{\dimexpr\textwidth-2\fboxsep}{\textbf{#1}}}%
+    \par\nopagebreak\smallskip
+    \begin{quote}
+}{%
+    \end{quote}
+    \par\medskip
+}
+
+% Tip box (orange)
+\newenvironment{tip}[1][Tip]{%
+    \par\medskip\noindent
+    \colorbox{orange!10}{\parbox{\dimexpr\textwidth-2\fboxsep}{\textbf{#1}}}%
+    \par\nopagebreak\smallskip
+    \begin{quote}
+}{%
+    \end{quote}
+    \par\medskip
+}
+
+% ROI calculation box (green)
+\newenvironment{roicalc}[1][ROI Calculation]{%
+    \par\medskip\noindent
+    \colorbox{green!15}{\parbox{\dimexpr\textwidth-2\fboxsep}{\textbf{#1}}}%
+    \par\nopagebreak\smallskip
+    \begin{quote}
+}{%
+    \end{quote}
+    \par\medskip
+}
+
+% Decision framework box (purple)
+\newenvironment{framework}[1][Decision Framework]{%
+    \par\medskip\noindent
+    \colorbox{purple!10}{\parbox{\dimexpr\textwidth-2\fboxsep}{\textbf{#1}}}%
+    \par\nopagebreak\smallskip
+    \begin{quote}
+}{%
+    \end{quote}
+    \par\medskip
+}
+
+% Implementation checklist environment
+\newenvironment{checklist}[1][Implementation Checklist]{%
+    \par\medskip\noindent
+    \colorbox{cyan!10}{\parbox{\dimexpr\textwidth-2\fboxsep}{\textbf{#1}}}%
+    \par\nopagebreak\smallskip
+    \begin{quote}
+}{%
+    \end{quote}
+    \par\medskip
+}
+
+% ============================================
+% DOCUMENT
+% ============================================
+
+\begin{document}
+
+% Front matter
+\frontmatter
+
+% Title page
+\begin{titlingpage}
+\centering
+\vspace*{2cm}
+{\Huge\bfseries AI for Business Leaders}\\[1.5cm]
+{\Large\itshape A Practical Guide to Understanding}\\[0.3cm]
+{\Large\itshape and Leveraging Artificial Intelligence}\\[3cm]
+\vfill
+{\large Planning Draft}\\[0.5cm]
+{\large \the\year}
+\end{titlingpage}
+
+% Copyright page
+\thispagestyle{empty}
+\null\vfill
+\begin{flushleft}
+\textit{AI for Business Leaders: A Practical Guide to Understanding and Leveraging Artificial Intelligence}\\[1em]
+Draft Edition, \the\year
+\end{flushleft}
+\clearpage
+
+% Table of contents
+\tableofcontents*
+\clearpage
+
+% Preface
+\include{frontmatter/preface}
+
+% Introduction
+\include{frontmatter/introduction}
+
+% Main matter
+\mainmatter
+
+% ============================================
+% PART I: UNDERSTANDING WHAT AI REALLY IS
+% ============================================
+\part{Understanding What AI Really Is}
+
+\include{chapters/ch01-beyond-buzzwords}
+\include{chapters/ch02-how-ai-thinks}
+\include{chapters/ch03-data-fuel}
+\include{chapters/ch04-build-vs-buy}
+
+% ============================================
+% PART II: USING AI IN EVERYDAY WORK
+% ============================================
+\part{Using AI in Everyday Work}
+
+\include{chapters/ch05-daily-assistant}
+\include{chapters/ch06-analysis-research}
+\include{chapters/ch07-customer-facing}
+\include{chapters/ch08-project-management}
+\include{chapters/ch09-responsible-ai}
+
+% ============================================
+% PART III: BUILDING REAL AI PROJECTS
+% ============================================
+\part{Building Real AI Projects}
+
+\include{chapters/ch10-implementation}
+\include{chapters/ch11-five-projects}
+\include{chapters/ch12-measuring-success}
+\include{chapters/ch13-road-ahead}
+
+% ============================================
+% BACK MATTER
+% ============================================
+\backmatter
+
+\include{backmatter/conclusion}
+
+% ============================================
+% APPENDICES
+% ============================================
+\appendix
+
+\include{appendices/appendix-prompts}
+\include{appendices/appendix-tools}
+\include{appendices/appendix-security}
+\include{appendices/appendix-glossary}
+\include{appendices/appendix-resources}
+
+% Index
+\printindex
+
+\end{document}

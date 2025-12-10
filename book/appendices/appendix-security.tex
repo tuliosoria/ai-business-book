@@ -1,0 +1,168 @@
+\chapter{Data Security and Compliance Checklist}
+\label{appendix:security}
+
+This appendix provides guidance for using AI tools safely and in compliance with organizational policies.
+
+\section{What Not to Share with AI Tools}
+
+\begin{table}[htbp]
+\centering
+\begin{tabularx}{\textwidth}{llX}
+\toprule
+\textbf{Data Type} & \textbf{Risk Level} & \textbf{Guidance} \\
+\midrule
+Customer PII & High & Never use with external AI without anonymization \\
+Financial data & High & Enterprise AI only with data protection agreement \\
+Health information & Critical & Never use with consumer AI tools (HIPAA) \\
+Trade secrets & High & Internal/private AI only \\
+Attorney-client communications & Critical & Extreme caution; may waive privilege \\
+Employee personal data & High & Enterprise AI with HR approval only \\
+Passwords, API keys & Critical & Never share with any AI tool \\
+\bottomrule
+\end{tabularx}
+\caption{Data types and AI usage guidance}
+\end{table}
+
+\section{Data Classification Framework}
+
+\subsection{Public}
+Can be shared freely:
+\begin{itemize}
+    \item Published marketing materials
+    \item Public company information
+    \item General industry knowledge
+\end{itemize}
+
+\subsection{Internal}
+Employees only:
+\begin{itemize}
+    \item Internal processes
+    \item General business discussions
+    \item Non-sensitive project details
+\end{itemize}
+
+\subsection{Confidential}
+Need-to-know only:
+\begin{itemize}
+    \item Customer data (even if anonymized)
+    \item Financial performance details
+    \item Strategic plans
+    \item Employee information
+\end{itemize}
+
+\subsection{Restricted}
+Highest protection:
+\begin{itemize}
+    \item Trade secrets
+    \item Legal matters
+    \item Pre-announcement information
+    \item Security vulnerabilities
+\end{itemize}
+
+\section{Enterprise AI vs. Consumer AI}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lll}
+\toprule
+\textbf{Factor} & \textbf{Consumer AI} & \textbf{Enterprise AI} \\
+\midrule
+Data training & May use your inputs & Typically excluded \\
+Data retention & Varies, often retained & Defined by agreement \\
+Access controls & Limited & Role-based \\
+Audit logging & Limited & Comprehensive \\
+Compliance certs & Rare & SOC 2, HIPAA, etc. \\
+\bottomrule
+\end{tabular}
+\caption{Consumer vs. Enterprise AI comparison}
+\end{table}
+
+\section{Vendor Evaluation Checklist}
+
+Before using an AI vendor for business data, answer these questions:
+
+\begin{enumerate}
+    \item Does the vendor train models on customer data?
+    \item How long is data retained? Can it be deleted on request?
+    \item Where is data stored? What jurisdictions?
+    \item Who at the vendor can access the data?
+    \item What compliance certifications do they hold?
+    \item What happens if there is a security breach?
+    \item What does the data processing agreement (DPA) say?
+    \item Is there a business associate agreement (BAA) for health data?
+    \item What is the incident response process?
+    \item Are there data residency options for your region?
+\end{enumerate}
+
+\section{Sample AI Usage Policy}
+
+Below is a template for organizational AI usage policy. Customize for your specific needs.
+
+\begin{verbatim}
+[COMPANY NAME] AI USAGE POLICY
+
+1. APPROVED TOOLS
+   The following AI tools are approved for business use:
+   - [Tool 1] - approved for [use cases]
+   - [Tool 2] - approved for [use cases]
+
+   All other AI tools require IT Security approval before use.
+
+2. DATA RESTRICTIONS
+   Do NOT input the following into AI tools:
+   - Customer personal information
+   - Financial account data
+   - Employee personal data
+   - Trade secrets or proprietary algorithms
+   - Information under NDA
+   - Legal or regulatory documents
+   - Passwords, API keys, or credentials
+
+3. REQUIRED REVIEW
+   All AI-generated content must be reviewed by a human before:
+   - Sending to customers
+   - Publishing externally
+   - Using for decisions affecting individuals
+   - Including in official reports
+
+4. DISCLOSURE
+   AI-assisted content must be disclosed when:
+   - Customer-facing chatbots are used
+   - [Other company-specific requirements]
+
+5. REPORTING
+   Report AI-related issues or concerns to [contact].
+
+6. VIOLATIONS
+   Violations of this policy may result in [consequences].
+
+Last updated: [date]
+Policy owner: [name/department]
+\end{verbatim}
+
+\section{Incident Response}
+
+If you suspect AI-related data exposure:
+
+\begin{enumerate}
+    \item \textbf{Stop.} Do not continue using the tool.
+    \item \textbf{Document.} Record what data may have been exposed and when.
+    \item \textbf{Report.} Notify IT Security and your manager immediately.
+    \item \textbf{Preserve.} Do not delete chat histories or logs.
+    \item \textbf{Cooperate.} Assist with investigation as requested.
+\end{enumerate}
+
+\section{Safe Habits Checklist}
+
+Daily practices for safe AI use:
+
+\begin{itemize}
+    \item[$\square$] Use only approved AI tools
+    \item[$\square$] Check data classification before pasting
+    \item[$\square$] Anonymize sensitive data when possible
+    \item[$\square$] Review outputs before sharing
+    \item[$\square$] Do not share AI credentials
+    \item[$\square$] Log out of AI tools when not in use
+    \item[$\square$] Report suspicious AI behavior
+    \item[$\square$] When in doubt, ask before pasting
+\end{itemize}

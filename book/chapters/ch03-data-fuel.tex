@@ -1,0 +1,491 @@
+\chapter{Data: The Fuel Behind Every AI System}
+
+\epigraph{Garbage in, garbage out.}{Computer Science Proverb}
+
+You've probably heard the phrase "data is the new oil." It's overused, but the analogy holds: raw oil sitting underground doesn't power anything. It needs to be extracted, refined, and distributed before it becomes useful. The same is true for data in AI systems.
+
+Here's what most business leaders get wrong: they think AI is primarily about algorithms. They hear about breakthroughs in machine learning, read about neural networks, and assume that's where the magic happens. But here's the uncomfortable truth---a mediocre algorithm trained on excellent data will outperform a sophisticated algorithm trained on poor data, every single time.
+
+This chapter explains why data quality matters more than most executives realize, what "good" data actually looks like in business contexts, the hidden risks lurking in your datasets, and most importantly, what you as a non-technical leader need to ask and fund to get data right.
+
+\section{Why Data Matters More Than You Think}
+
+Let's start with a simple thought experiment. Imagine you're building a system to predict which customers are likely to cancel their subscriptions. You have two options:
+
+\begin{enumerate}
+\item A cutting-edge deep learning model trained on six months of incomplete customer data with missing fields and inconsistent formatting
+\item A basic logistic regression model (the statistical equivalent of a Honda Civic) trained on five years of clean, comprehensive customer interaction data
+\end{enumerate}
+
+Option two will win. Not sometimes. Always.
+
+Why? Because AI systems learn patterns from the data you give them. If the data is incomplete, inconsistent, or unrepresentative, the patterns the system learns will be incomplete, inconsistent, or unrepresentative. No amount of algorithmic sophistication can fix fundamentally flawed training data.
+
+\begin{keyinsight}
+Good algorithms applied to bad data produce bad results. Adequate algorithms applied to good data produce good results. Data quality is not a technical problem---it's a business priority that requires leadership attention and funding.
+\end{keyinsight}
+
+This has direct implications for how you should allocate budget and attention. Many organizations spend heavily on AI tools and talent while starving the data infrastructure that makes those tools useful. It's like buying a Ferrari and filling it with contaminated fuel---you've wasted money on both the car and the gas.
+
+\section{What "Good" Data Looks Like in Business}
+
+When data scientists talk about "good data," they're not being precious or perfectionist. They're describing specific, measurable characteristics that determine whether an AI system can learn useful patterns. Here are the five qualities that separate useful data from expensive noise:
+
+\subsection{Complete: You Have What You Need}
+
+Complete data means you're capturing the information necessary to answer your business question. Notice the emphasis: \textit{necessary}, not \textit{everything}.
+
+\begin{realexample}[Incomplete Data in Practice]
+A retail company wanted to predict stockouts at their stores. They had comprehensive data about inventory levels and sales transactions. What they didn't have was data about local events, weather patterns, or nearby competitor promotions---all factors that dramatically affect demand.
+
+Their AI system learned to predict stockouts based solely on historical inventory patterns. It was technically functional but strategically useless because it couldn't anticipate the external factors that actually drove the problem.
+\end{realexample}
+
+Completeness isn't about capturing every possible data point. It's about identifying which signals matter for your specific use case and ensuring you're actually collecting them. This requires business judgment, not just technical capability.
+
+\textbf{Questions to ask your team:}
+\begin{itemize}
+\item What factors do our domain experts believe influence this outcome?
+\item Are we currently capturing data about those factors?
+\item What are we \textit{not} measuring that might matter?
+\end{itemize}
+
+\subsection{Consistent: The Same Thing Means the Same Thing}
+
+Consistent data follows the same format, definitions, and standards across time and systems. This sounds obvious until you actually look at enterprise data.
+
+\begin{realexample}[The Customer ID Problem]
+A financial services firm merged with a competitor. The combined entity had three different systems tracking customer interactions, each with its own customer ID scheme. Customer 10045 in System A might be customer C-29388 in System B and user\_99234 in System C---or they might be three different people.
+
+When they tried to build a unified customer service AI, the system couldn't tell which interactions belonged to which customers. They spent eighteen months and millions of dollars on data integration before they could even begin the AI project.
+\end{realexample}
+
+Inconsistency manifests in many forms:
+\begin{itemize}
+\item Different teams using different definitions of key metrics (What counts as a "sale"? What defines an "active" customer?)
+\item Date formats varying across systems (MM/DD/YYYY vs. DD/MM/YYYY vs. ISO 8601)
+\item Units changing without documentation (revenue recorded in thousands in one place, in actual dollars elsewhere)
+\item Categorical data with slight variations ("NY" vs. "New York" vs. "NY State")
+\end{itemize}
+
+These seem like minor technical issues. They're not. They're organizational problems that create technical debt which eventually destroys AI initiatives.
+
+\subsection{Current: The Data Reflects Reality Now}
+
+Data decays. Customer preferences change. Market conditions evolve. Product catalogs update. An AI system trained on data from three years ago is learning patterns that may no longer exist.
+
+\begin{warning}[The Staleness Trap]
+Many organizations have excellent historical data archives but poor real-time data pipelines. This creates a dangerous situation: the data is technically "complete" and "consistent," but it's teaching the AI about a business environment that no longer exists.
+
+A system trained on pre-pandemic customer behavior patterns, for example, would have led businesses catastrophically astray in 2020 and beyond.
+\end{warning}
+
+Currency requirements vary by use case. A fraud detection system might need data refreshed every few seconds. A workforce planning model might work fine with monthly updates. The key is matching your data freshness to the pace at which the underlying patterns actually change.
+
+\textbf{Questions to ask your team:}
+\begin{itemize}
+\item How old is the data we're training on?
+\item How quickly do the patterns we're trying to predict actually change?
+\item Do we have a process for retraining models as new data arrives?
+\end{itemize}
+
+\subsection{Correct: The Data Accurately Represents What Happened}
+
+This is the most straightforward quality and yet the most frequently violated. Correct data means the values recorded actually match reality. Sensors malfunction. Users enter incorrect information. Systems have bugs. Data transfer processes corrupt values.
+
+The challenge is that incorrect data often isn't obviously wrong. A sensor reading of "985 degrees Fahrenheit" in a manufacturing process might be a malfunction---or it might be accurate. A customer age of "205" is clearly wrong. A customer age of "105" might be wrong, or might be a genuine centenarian.
+
+\begin{realexample}[The Default Value Problem]
+A healthcare analytics firm discovered that thousands of patient records listed blood pressure as "120/80"---the default value their data entry system used when no value was entered. Their AI system for identifying hypertension risk had learned that "120/80" was one of the most common values, completely missing the fact that many of these were not measurements at all, but data entry gaps.
+\end{realexample}
+
+Data quality monitoring isn't glamorous work, but it's essential. This means implementing validation rules, conducting regular audits, and creating feedback loops so data collectors understand how their inputs affect downstream systems.
+
+\subsection{Connected: Related Data Can Be Linked}
+
+AI systems often need to combine data from multiple sources to generate useful insights. This requires the ability to reliably link related records across systems.
+
+Consider a common business scenario: you want to understand the customer journey from initial contact through purchase to support interactions. This might require connecting:
+\begin{itemize}
+\item Marketing automation system (initial contact)
+\item CRM database (sales process)
+\item E-commerce platform (purchase transaction)
+\item Support ticketing system (post-purchase issues)
+\item Product usage logs (actual behavior)
+\end{itemize}
+
+If these systems can't reliably identify that they're all talking about the same customer, you can't build a unified view of the customer journey. Your AI will see these as disconnected events rather than a coherent pattern.
+
+\begin{keyinsight}
+The five qualities of good data---Complete, Consistent, Current, Correct, and Connected---are not optional nice-to-haves. They are prerequisites for AI systems that generate business value. Funding data quality is not a cost center; it's a strategic investment in making AI possible.
+\end{keyinsight}
+
+\section{Data Risks: Bias, Gaps, and Misleading Patterns}
+
+Even when your data meets all five quality criteria, it can still lead you astray. Historical data encodes historical patterns---including historical mistakes, biases, and circumstances that no longer apply. Here are the most common and dangerous ways data can mislead AI systems:
+
+\subsection{Survivorship Bias: Learning From Who's Left}
+
+Survivorship bias occurs when your data only includes entities that "survived" some selection process, ignoring the (often more numerous) entities that didn't.
+
+\begin{realexample}[The Successful Startup Fallacy]
+A venture capital firm built an AI system to identify promising startups by training it on characteristics of their successful portfolio companies. The system learned that successful startups often pivot their business model, have Stanford or MIT founders, and operate in consumer technology.
+
+What the system didn't learn: these characteristics were also common in the 95\% of their portfolio companies that failed. The data only included companies that got funded and succeeded. It told them nothing about what actually distinguished winners from losers.
+\end{realexample}
+
+\textbf{Questions to ask:} Does our training data include both successes and failures? Are we only looking at customers who stayed, or also those who left? Are we learning from projects that shipped, or also from projects that failed?
+
+\subsection{Historical Bias: Automating Yesterday's Discrimination}
+
+Historical bias occurs when past human decisions encoded in data reflect prejudices, structural inequalities, or outdated practices. When you train AI on this data, you automate those biases at scale.
+
+\begin{warning}[Bias in Hiring Systems]
+Multiple companies have attempted to build AI-powered resume screening tools trained on historical hiring data. The logic seems sound: learn what successful hires looked like in the past, find candidates who match that pattern.
+
+The problem: if your historical hiring was biased (and most organizations' hiring has been, whether intentionally or not), your AI will perpetuate and amplify those biases. Systems have learned to penalize resumes mentioning women's colleges, favor male-associated names, and downweight candidates from certain neighborhoods---because that's what the historical hiring patterns showed.
+\end{warning}
+
+This isn't a problem that better algorithms can solve. The bias is in the data itself. Addressing it requires:
+\begin{itemize}
+\item Auditing historical data for discriminatory patterns
+\item Being willing to \textit{not} automate decisions where historical bias is pervasive
+\item Implementing human oversight for high-stakes decisions
+\item Measuring outcomes by demographic group to detect bias in production systems
+\end{itemize}
+
+\subsection{Selection Bias: Non-Representative Samples}
+
+Selection bias happens when the data you have isn't representative of the population you care about. This is particularly common when data collection itself is non-random.
+
+\begin{realexample}[The Online Review Problem]
+A hospitality company built a system to predict guest satisfaction using online review data. The system learned that luxury amenities strongly predicted satisfaction and recommended expensive upgrades across their property portfolio.
+
+The flaw: people who leave online reviews are not representative of all guests. They skew toward extreme experiences (very positive or very negative), are more likely to be frequent travelers, and tend to be more tech-savvy. The "average" reviewer's preferences didn't match the average guest's preferences. Acting on the AI's recommendations would have optimized for the wrong audience.
+\end{realexample}
+
+\textbf{Questions to ask:} Who or what is included in our dataset? Who or what is missing? Is our data representative of the population we're trying to serve or predict?
+
+\subsection{Sampling Bias: Skewed Data Collection}
+
+Sampling bias is a specific form of selection bias that occurs when the method of data collection systematically over- or under-represents certain groups.
+
+Example patterns include:
+\begin{itemize}
+\item Survey data collected only from customers who respond (response bias)
+\item Transaction data that only captures successful transactions, not attempted but failed ones
+\item Sensor data collected during business hours but not nights/weekends
+\item User feedback collected only from engaged users, not from those who abandoned your product
+\end{itemize}
+
+The danger is that sampling bias is often invisible. The data \textit{looks} complete because you have what you have. What you don't have doesn't appear in any report.
+
+\subsection{Temporal Bias: When Patterns Change Over Time}
+
+Temporal bias occurs when the relationship between inputs and outputs changes over time, but your training data doesn't reflect this evolution.
+
+\begin{realexample}[The Credit Risk Shift]
+A financial institution trained a credit risk model on data from 2015-2019, a period of economic growth and low interest rates. They deployed it in 2022. The model's predictions were systematically wrong because the relationship between borrower characteristics and default risk had changed substantially due to inflation, interest rate increases, and economic uncertainty.
+
+The data was complete, consistent, and correct---but it reflected patterns that no longer held.
+\end{realexample}
+
+\textbf{Questions to ask:} How old is our training data? Have there been significant changes in our business, market, or customer base since that data was collected? Do we have a process for detecting when patterns have shifted enough that retraining is necessary?
+
+\begin{checklist}[Data Risk Assessment]
+Before deploying an AI system, verify you've addressed:
+\begin{itemize}
+\item \textbf{Survivorship bias:} Data includes both successes and failures
+\item \textbf{Historical bias:} Past human decisions have been audited for discrimination
+\item \textbf{Selection bias:} Sample is representative of target population
+\item \textbf{Sampling bias:} Collection method doesn't systematically exclude groups
+\item \textbf{Temporal bias:} Training data reflects current conditions
+\item \textbf{Ongoing monitoring:} System in place to detect bias in production
+\item \textbf{Human oversight:} Defined escalation paths for high-stakes decisions
+\end{itemize}
+\end{checklist}
+
+\section{Connecting Your Data to AI Tools}
+
+Understanding data quality is one thing. Actually getting your data into a usable form for AI systems is another. There are four main approaches to connecting your business data to AI capabilities, each with different tradeoffs in cost, control, and capability.
+
+\subsection{Level 1: Manual Copy-Paste}
+
+At the most basic level, you can manually copy data from your systems and paste it into AI tool interfaces. This is how most organizations start using tools like ChatGPT for business tasks.
+
+\textbf{Advantages:}
+\begin{itemize}
+\item Zero technical infrastructure required
+\item Works immediately
+\item Complete control over what data is shared
+\item No integration costs
+\end{itemize}
+
+\textbf{Limitations:}
+\begin{itemize}
+\item Doesn't scale beyond small tasks
+\item High risk of errors in manual transfer
+\item No automation possible
+\item Time-consuming for repeated tasks
+\end{itemize}
+
+\textbf{Appropriate for:} One-off analysis tasks, exploratory use, situations where you're testing whether AI can help before investing in integration.
+
+\subsection{Level 2: File Uploads}
+
+Many AI tools accept file uploads (CSV, Excel, PDF, etc.). This allows you to export data from your systems in batch and upload it to AI tools.
+
+\textbf{Advantages:}
+\begin{itemize}
+\item Handles larger datasets than copy-paste
+\item Reproducible (you can re-run with updated exports)
+\item Maintains data structure and formatting
+\item Still relatively simple to implement
+\end{itemize}
+
+\textbf{Limitations:}
+\begin{itemize}
+\item Still manual and time-consuming
+\item Creates data security risks (files can be accidentally shared or stored insecurely)
+\item No real-time data access
+\item Requires someone to remember to do exports regularly
+\end{itemize}
+
+\textbf{Appropriate for:} Regular reporting tasks, monthly/quarterly analysis, situations where near-real-time data isn't necessary.
+
+\begin{warning}[Data Security in File Uploads]
+When uploading business data to external AI services, you're transmitting potentially sensitive information outside your corporate network. Before implementing file upload workflows:
+\begin{itemize}
+\item Review the AI vendor's data retention and privacy policies
+\item Ensure uploaded data is encrypted in transit and at rest
+\item Implement access controls on who can upload what data
+\item Consider anonymizing or aggregating data before upload
+\item Maintain audit logs of what data was shared with external services
+\end{itemize}
+\end{warning}
+
+\subsection{Level 3: API Integration}
+
+Application Programming Interfaces (APIs) allow your systems to automatically send data to and receive results from AI services. This is where you transition from manual workflows to automated AI integration.
+
+\textbf{Advantages:}
+\begin{itemize}
+\item Fully automated---no manual intervention needed
+\item Can operate in real-time or near-real-time
+\item Enables AI to become part of operational workflows
+\item Scalable to high volumes
+\end{itemize}
+
+\textbf{Limitations:}
+\begin{itemize}
+\item Requires software development resources
+\item Ongoing maintenance as systems change
+\item Need to handle errors and edge cases
+\item Potential performance bottlenecks if not designed carefully
+\end{itemize}
+
+\textbf{Appropriate for:} Production use cases, workflows that need to scale, situations where AI decisions need to happen automatically as part of business processes.
+
+\begin{realexample}[API Integration in Practice]
+A logistics company integrated their dispatch system with an AI routing service via API. When new delivery orders arrive, the system automatically:
+\begin{enumerate}
+\item Sends order details and current driver locations to the AI service
+\item Receives optimized routing recommendations
+\item Updates driver assignments in the dispatch system
+\item Logs the decision for later analysis
+\end{enumerate}
+
+This happens hundreds of times per day with no human intervention. The integration took three months to build, but now saves approximately 15\% on fuel costs and improves delivery times.
+\end{realexample}
+
+\textbf{Questions to ask when considering API integration:}
+\begin{itemize}
+\item Do we have development resources available for integration work?
+\item What's the expected ROI given integration costs vs. manual alternative?
+\item Does the AI vendor provide stable, well-documented APIs?
+\item What happens if the API call fails---do we have fallback procedures?
+\item How will we monitor and maintain this integration over time?
+\end{itemize}
+
+\subsection{Level 4: Custom Fine-Tuning}
+
+The deepest form of integration is training or fine-tuning an AI model specifically on your data. This means the AI learns patterns unique to your business, products, customers, and operations.
+
+\textbf{Advantages:}
+\begin{itemize}
+\item Model learns patterns specific to your business
+\item Can handle specialized terminology and concepts
+\item Potentially better performance than general-purpose models
+\item Data stays within your control (if self-hosted)
+\end{itemize}
+
+\textbf{Limitations:}
+\begin{itemize}
+\item Requires significant data volume (typically thousands to millions of examples)
+\item Expensive and technically complex
+\item Needs ongoing retraining as patterns change
+\item Requires machine learning expertise
+\item Data quality becomes absolutely critical
+\end{itemize}
+
+\textbf{Appropriate for:} Core competitive differentiators, specialized domains where general models fail, situations where you have both sufficient data and technical resources.
+
+\begin{keyinsight}
+Start simple and increase complexity only when justified by business value. Most organizations should begin with manual copy-paste or file uploads, move to API integration for high-value repeated tasks, and only pursue custom fine-tuning when general-purpose models demonstrably fail at critical use cases.
+\end{keyinsight}
+
+\begin{table}[h]
+\centering
+\caption{Data Integration Approaches Comparison}
+\begin{tabular}{p{2cm}p{2.5cm}p{2.5cm}p{3cm}p{3cm}}
+\hline
+\textbf{Approach} & \textbf{Setup Cost} & \textbf{Ongoing Cost} & \textbf{Best For} & \textbf{Limitations} \\
+\hline
+Manual Copy-Paste & Very Low & High (time) & Exploration, one-off tasks & Doesn't scale \\
+\hline
+File Upload & Low & Medium (time) & Regular reporting, batch analysis & Manual process \\
+\hline
+API Integration & High (development) & Low & Production workflows, automation & Needs dev resources \\
+\hline
+Custom Fine-Tuning & Very High & Very High & Core competitive use cases & Needs ML expertise \& data volume \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Your Role as a Non-Technical Leader}
+
+You don't need to become a data scientist to lead AI initiatives effectively. But you do need to ask the right questions, fund the right capabilities, and establish the right governance. Here's what that looks like in practice.
+
+\subsection{Questions to Ask Your Team}
+
+When your team proposes an AI initiative, these questions will reveal whether the data foundation is solid:
+
+\textbf{About data quality:}
+\begin{itemize}
+\item Where is this training data coming from? Who collected it and why?
+\item How old is the data? How frequently will we update it?
+\item What percentage of records have missing or incomplete data?
+\item How do we know the data is accurate?
+\item Can we link this data to other relevant data sources?
+\end{itemize}
+
+\textbf{About data bias and risks:}
+\begin{itemize}
+\item Does this data include both successes and failures?
+\item Have we audited for historical bias in human decisions?
+\item Is the data representative of the population we're trying to serve?
+\item What happens if the underlying patterns change?
+\item How will we detect if the model is producing biased outcomes?
+\end{itemize}
+
+\textbf{About integration approach:}
+\begin{itemize}
+\item What level of integration are we planning? (manual, file upload, API, custom training)
+\item Why is that the right level for this use case?
+\item What are the security implications of sharing this data with external services?
+\item What's our fallback plan if the integration fails?
+\end{itemize}
+
+These aren't gotcha questions. They're planning questions. Good teams will have thought through these issues. If they haven't, you've just helped them avoid expensive mistakes.
+
+\subsection{What to Fund}
+
+Data infrastructure isn't glamorous, but it's essential. Here are the investments that enable AI success:
+
+\textbf{Data quality infrastructure:}
+\begin{itemize}
+\item Validation rules and automated quality checks
+\item Data profiling and monitoring tools
+\item Processes for cleaning and standardizing data
+\item Regular data quality audits
+\end{itemize}
+
+\textbf{Data integration capabilities:}
+\begin{itemize}
+\item Master data management (unified view of customers, products, etc.)
+\item Data pipeline development and maintenance
+\item API development resources
+\item Data warehouse or lake infrastructure
+\end{itemize}
+
+\textbf{Data governance and security:}
+\begin{itemize}
+\item Clear data access policies
+\item Audit logging for sensitive data
+\item Encryption for data at rest and in transit
+\item Regular security reviews
+\end{itemize}
+
+\begin{realexample}[Infrastructure Investment Payoff]
+A manufacturing company spent two years and \$8 million building a unified data platform that consolidated sensor data from factory equipment, maintenance records, supply chain information, and quality control results. No AI was involved in this initial phase---it was pure data infrastructure.
+
+Once the foundation was in place, they rapidly deployed three AI applications: predictive maintenance (preventing equipment failures), quality prediction (identifying defects earlier in production), and demand forecasting (optimizing inventory). Each project took months instead of years and delivered positive ROI within the first year because the data foundation was solid.
+
+The lesson: infrastructure investments look expensive until you try to build on their absence.
+\end{realexample}
+
+\subsection{Data Governance: Setting Rules Before Problems Arise}
+
+Data governance is the set of policies, processes, and responsibilities that determine how data is collected, stored, accessed, and used. It's not optional for organizations deploying AI at scale.
+
+\textbf{Key governance questions to establish:}
+\begin{itemize}
+\item \textbf{Ownership:} Who is responsible for data quality in each domain?
+\item \textbf{Access:} Who can access what data for what purposes?
+\item \textbf{Privacy:} What data can and cannot be used for AI training?
+\item \textbf{Retention:} How long do we keep data? When do we delete it?
+\item \textbf{Ethics:} What uses of data are off-limits even if technically possible?
+\item \textbf{Audit:} How do we track what data was used to train what models?
+\end{itemize}
+
+These policies need to be established before deploying AI in production, not after problems emerge. It's much easier to build governance into processes than to retrofit it after the fact.
+
+\begin{checklist}[Leadership Action Items]
+To build a solid data foundation for AI:
+\begin{itemize}
+\item \textbf{Assess current state:} Conduct a data quality audit across key business systems
+\item \textbf{Identify gaps:} Map what data you need vs. what you have for priority use cases
+\item \textbf{Fund infrastructure:} Budget for data quality, integration, and governance capabilities
+\item \textbf{Assign ownership:} Designate clear data ownership across domains
+\item \textbf{Establish governance:} Create policies before deploying production AI systems
+\item \textbf{Measure quality:} Implement metrics and monitoring for data quality
+\item \textbf{Plan for bias:} Require bias audits for AI systems that affect people
+\end{itemize}
+\end{checklist}
+
+\section{Summary}
+
+Data is not a technical concern that leaders can delegate and forget. It's the foundation that determines whether AI initiatives succeed or fail. The quality of your data matters more than the sophistication of your algorithms.
+
+Good data is Complete (you have what you need), Consistent (same thing means same thing), Current (reflects reality now), Correct (accurate), and Connected (can be linked across systems). Achieving all five qualities requires investment, attention, and organizational discipline.
+
+Even high-quality data can mislead if it encodes survivorship bias, historical discrimination, non-representative samples, or outdated patterns. Data risks require governance, oversight, and ongoing monitoring---not just better technology.
+
+Connecting data to AI tools ranges from simple copy-paste to complex custom training. Start simple, prove value, then invest in deeper integration only when justified by business returns.
+
+Your role as a non-technical leader is to ask the right questions about data quality and bias, fund the infrastructure that makes AI possible, and establish governance before problems emerge. These aren't technical tasks---they're leadership responsibilities that require business judgment, not coding skills.
+
+Organizations that treat data as a strategic asset and fund it accordingly will outperform those that treat it as a technical afterthought. The difference in outcomes is not subtle.
+
+\begin{exercise}
+Conduct a data readiness assessment for a planned or existing AI initiative in your organization:
+
+\begin{enumerate}
+\item \textbf{Identify the use case:} What business problem is the AI system intended to solve?
+
+\item \textbf{Map required data:} What data inputs does the system need? List all sources.
+
+\item \textbf{Assess quality:} For each data source, evaluate against the five qualities (Complete, Consistent, Current, Correct, Connected). Use a simple red/yellow/green rating.
+
+\item \textbf{Identify risks:} Which bias types might affect this use case? (Survivorship, historical, selection, sampling, temporal)
+
+\item \textbf{Determine integration level:} What level of integration is appropriate? (Manual, file upload, API, custom training)
+
+\item \textbf{Calculate investment:} What would it cost to address the red and yellow quality ratings? Is that investment justified by the use case value?
+
+\item \textbf{Define governance:} What policies need to be in place before deployment?
+
+\end{enumerate}
+
+Document your findings in a one-page memo. Share it with your technical team and discuss whether their assessment matches yours. The goal isn't perfect agreement---it's developing a shared understanding of data requirements and constraints.
+\end{exercise}

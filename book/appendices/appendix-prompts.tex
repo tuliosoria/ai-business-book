@@ -1,0 +1,265 @@
+\chapter{Prompt Templates}
+\label{appendix:prompts}
+
+This appendix provides ready-to-use prompt templates for common business tasks. Copy and customize these for your specific needs.
+
+\section{Customer Service}
+
+\subsection{Complaint Response}
+
+\begin{promptexample}[Template: Complaint Response]
+Customer complaint:
+[paste complaint]
+
+Context:
+- Our policy on this issue: [policy]
+- What we can offer: [available resolutions]
+- Tone: empathetic, professional, solution-focused
+
+Draft a response that:
+1. Acknowledges their frustration without being defensive
+2. Takes appropriate responsibility
+3. Offers a clear resolution or next steps
+4. Invites further dialogue if needed
+\end{promptexample}
+
+\subsection{Information Request}
+
+\begin{promptexample}[Template: Information Request Response]
+Customer question:
+[paste question]
+
+Relevant information:
+- [fact 1]
+- [fact 2]
+- [fact 3]
+
+Draft a response that:
+1. Answers the question directly
+2. Provides helpful context
+3. Anticipates follow-up questions
+4. Offers additional assistance
+\end{promptexample}
+
+\section{Meeting and Documentation}
+
+\subsection{Meeting Summary}
+
+\begin{promptexample}[Template: Meeting Summary]
+Meeting transcript/notes:
+[paste transcript or notes]
+
+Create a meeting summary with:
+
+1. Overview (2-3 sentences: what was this meeting about?)
+
+2. Decisions Made
+- [Decision with rationale if discussed]
+
+3. Action Items
+| Action | Owner | Due Date |
+| --- | --- | --- |
+
+4. Key Discussion Points (3-5 bullets)
+
+5. Open Questions / Parking Lot
+
+6. Next Steps
+
+Only include information actually discussed. Do not invent details.
+\end{promptexample}
+
+\subsection{Document Summary}
+
+\begin{promptexample}[Template: Document Summary]
+Document:
+[paste document or describe]
+
+Summarize for: [audience - executive, team member, external party]
+Purpose: [why they need this summary]
+
+Provide:
+1. Executive summary (50 words max)
+2. Key points (5-7 bullets)
+3. Important caveats or limitations
+4. Recommended next steps (if applicable)
+\end{promptexample}
+
+\section{Analysis and Research}
+
+\subsection{Research Brief}
+
+\begin{promptexample}[Template: Research Brief]
+I need to understand [topic] for [purpose].
+I have [time available] to review this.
+My background: [relevant context about what you already know]
+
+Provide:
+1. Overview (2-3 paragraphs for someone new to this)
+2. Key concepts I must understand
+3. Common misconceptions to avoid
+4. Most important recent developments
+5. Questions I should be asking
+
+Cite specific sources where possible.
+\end{promptexample}
+
+\subsection{Decision Analysis}
+
+\begin{promptexample}[Template: Decision Analysis]
+Decision: [what needs to be decided]
+
+Options:
+- Option A: [description]
+- Option B: [description]
+- Option C: [description]
+
+Stakeholders: [who cares]
+Constraints: [budget, time, resources, politics]
+Goals: [what success looks like]
+
+For each option, analyze:
+1. Pros
+2. Cons
+3. Risks
+4. Resources required
+5. Reversibility
+
+Recommend: [which option and why]
+\end{promptexample}
+
+\subsection{Pre-Mortem Analysis}
+
+\begin{promptexample}[Template: Pre-Mortem]
+I am planning to [decision/action].
+
+Imagine it is 12 months from now and this has failed badly.
+- What went wrong?
+- What early warning signs did we miss?
+- What assumptions turned out to be false?
+- What did competitors do that we did not anticipate?
+
+Now: What can we do today to prevent these failures?
+\end{promptexample}
+
+\section{Content Creation}
+
+\subsection{Content Variation}
+
+\begin{promptexample}[Template: Content Variation]
+Source content:
+[paste original]
+
+Create 5 variations optimized for:
+1. LinkedIn (professional, insight-led)
+2. Twitter/X (concise, engaging hook)
+3. Email subject line (curiosity-driven, under 50 chars)
+4. Email body (scannable, clear CTA)
+5. Blog intro paragraph (SEO-aware, hooks reader)
+
+Maintain core message but adapt format and tone for each channel.
+\end{promptexample}
+
+\subsection{Persona Adaptation}
+
+\begin{promptexample}[Template: Persona Adaptation]
+Original message:
+[paste content]
+
+Adapt for these audiences (same core message, different framing):
+1. CFO (focus: ROI, risk, bottom line)
+2. IT Director (focus: implementation, integration, security)
+3. End User (focus: ease of use, daily benefits)
+
+Each version: 100-150 words.
+\end{promptexample}
+
+\section{Project Management}
+
+\subsection{Project Kickoff Structure}
+
+\begin{promptexample}[Template: Project Kickoff]
+New project: [name/description]
+Sponsor: [who]
+Rough timeline expectation: [duration]
+Budget range: [if known]
+Key stakeholders: [list]
+
+Help me structure the kickoff:
+1. What questions must be answered before we start?
+2. What scope clarifications are needed?
+3. What are likely risks we should discuss early?
+4. What dependencies might not be obvious?
+5. Suggested agenda for kickoff meeting (60 minutes)
+\end{promptexample}
+
+\subsection{Status Update}
+
+\begin{promptexample}[Template: Status Update]
+Project: [name]
+Audience: [who will read this]
+Update frequency: [weekly/monthly]
+
+Raw inputs:
+[paste task status, blockers, metrics, etc.]
+
+Create status update:
+- Executive summary (2-3 sentences)
+- Progress against milestones
+- Key accomplishments this period
+- Blockers and risks
+- Upcoming focus areas
+- Asks (if any)
+\end{promptexample}
+
+\section{Data Analysis}
+
+\subsection{Data Interpretation}
+
+\begin{promptexample}[Template: Data Interpretation]
+Data:
+[paste or describe dataset]
+
+Context: [what this data represents]
+Question: [what you want to understand]
+
+Provide:
+1. Summary statistics (if numerical)
+2. Key patterns or trends
+3. Outliers or anomalies
+4. Possible explanations
+5. Recommended additional analysis
+6. Caveats about this interpretation
+\end{promptexample}
+
+\subsection{Feedback Analysis}
+
+\begin{promptexample}[Template: Feedback Analysis]
+Analyze the following customer feedback items.
+
+For each item, provide:
+1. Sentiment (Positive/Neutral/Negative)
+2. Category (from: [your categories])
+3. Priority (High/Medium/Low)
+4. Topic (brief label, max 3 words)
+5. Key phrase (most important quote)
+
+Format output as a table suitable for spreadsheet import.
+
+Feedback items:
+[paste 20-30 items]
+\end{promptexample}
+
+\section{Tips for Using These Templates}
+
+\begin{enumerate}
+    \item \textbf{Customize the context.} These templates are starting points. Add details specific to your situation.
+
+    \item \textbf{Specify the format.} If you need output in a specific format (table, bullets, paragraphs), say so explicitly.
+
+    \item \textbf{Include constraints.} Length limits, tone requirements, and must-avoid topics all improve results.
+
+    \item \textbf{Iterate.} If the first output is not right, refine your prompt rather than starting over.
+
+    \item \textbf{Verify always.} No template guarantees accuracy. Check all outputs before using them.
+\end{enumerate}
