@@ -264,30 +264,30 @@ When uploading business data to external AI services, you're transmitting potent
 \end{itemize}
 \end{warning}
 
-\subsection{Level 3: API Integration}
+\subsection{Level 3: Automated System Connections}
 
-Application Programming Interfaces (APIs) allow your systems to automatically send data to and receive results from AI services. This is where you transition from manual workflows to automated AI integration.
+Automated connections allow your business systems to send data to and receive results from AI services without manual intervention. This is where you transition from manual workflows to AI that runs as part of your operations.
 
 \textbf{Advantages:}
 \begin{itemize}
-\item Fully automated---no manual intervention needed
+\item Fully automated---no staff time required per transaction
 \item Can operate in real-time or near-real-time
-\item Enables AI to become part of operational workflows
-\item Scalable to high volumes
+\item AI becomes embedded in operational workflows
+\item Scales to handle high volumes cost-effectively
 \end{itemize}
 
 \textbf{Limitations:}
 \begin{itemize}
-\item Requires software development resources
-\item Ongoing maintenance as systems change
-\item Need to handle errors and edge cases
-\item Potential performance bottlenecks if not designed carefully
+\item Requires IT involvement to set up connections
+\item Ongoing maintenance as systems evolve
+\item Need contingency plans when connections fail
+\item Initial setup investment before seeing returns
 \end{itemize}
 
-\textbf{Appropriate for:} Production use cases, workflows that need to scale, situations where AI decisions need to happen automatically as part of business processes.
+\textbf{Appropriate for:} High-volume business processes, workflows that need to scale, situations where AI decisions need to happen automatically (e.g., customer inquiries, order processing, fraud detection).
 
-\begin{realexample}[API Integration in Practice]
-A logistics company integrated their dispatch system with an AI routing service via API. When new delivery orders arrive, the system automatically:
+\begin{realexample}[Automated Integration in Practice]
+A logistics company connected their dispatch system to an AI routing service. When new delivery orders arrive, the system automatically:
 \begin{enumerate}
 \item Sends order details and current driver locations to the AI service
 \item Receives optimized routing recommendations
@@ -298,13 +298,13 @@ A logistics company integrated their dispatch system with an AI routing service 
 This happens hundreds of times per day with no human intervention. The integration took three months to build, but now saves approximately 15\% on fuel costs and improves delivery times.
 \end{realexample}
 
-\textbf{Questions to ask when considering API integration:}
+\textbf{Questions to ask when considering automated integration:}
 \begin{itemize}
-\item Do we have development resources available for integration work?
-\item What's the expected ROI given integration costs vs. manual alternative?
-\item Does the AI vendor provide stable, well-documented APIs?
-\item What happens if the API call fails---do we have fallback procedures?
-\item How will we monitor and maintain this integration over time?
+\item Do we have IT resources available, or do we need an outside vendor?
+\item What is the expected ROI given setup costs versus the manual alternative?
+\item Does the AI vendor have a track record of reliable service?
+\item What happens if the connection fails---do we have fallback procedures?
+\item Who owns ongoing maintenance and monitoring?
 \end{itemize}
 
 \subsection{Level 4: Custom Fine-Tuning}
@@ -323,15 +323,15 @@ The deepest form of integration is training or fine-tuning an AI model specifica
 \begin{itemize}
 \item Requires significant data volume (typically thousands to millions of examples)
 \item Expensive and technically complex
-\item Needs ongoing retraining as patterns change
-\item Requires machine learning expertise
+\item Needs ongoing updates as business patterns change
+\item Requires specialized expertise (internal team or contracted)
 \item Data quality becomes absolutely critical
 \end{itemize}
 
 \textbf{Appropriate for:} Core competitive differentiators, specialized domains where general models fail, situations where you have both sufficient data and technical resources.
 
 \begin{keyinsight}
-Start simple and increase complexity only when justified by business value. Most organizations should begin with manual copy-paste or file uploads, move to API integration for high-value repeated tasks, and only pursue custom fine-tuning when general-purpose models demonstrably fail at critical use cases.
+Start simple and increase complexity only when justified by business value. Most organizations should begin with manual copy-paste or file uploads, move to automated connections for high-value repeated tasks, and only pursue custom training when general-purpose AI demonstrably fails at critical use cases.
 \end{keyinsight}
 
 \begin{table}[h]
@@ -341,13 +341,13 @@ Start simple and increase complexity only when justified by business value. Most
 \hline
 \textbf{Approach} & \textbf{Setup Cost} & \textbf{Ongoing Cost} & \textbf{Best For} & \textbf{Limitations} \\
 \hline
-Manual Copy-Paste & Very Low & High (time) & Exploration, one-off tasks & Doesn't scale \\
+Manual Copy-Paste & Very Low & High (time) & Exploration, one-off tasks & Does not scale \\
 \hline
 File Upload & Low & Medium (time) & Regular reporting, batch analysis & Manual process \\
 \hline
-API Integration & High (development) & Low & Production workflows, automation & Needs dev resources \\
+Automated Connection & High (IT project) & Low & Production workflows, automation & Needs IT resources \\
 \hline
-Custom Fine-Tuning & Very High & Very High & Core competitive use cases & Needs ML expertise \& data volume \\
+Custom Training & Very High & Very High & Core competitive use cases & Needs expertise \& data volume \\
 \hline
 \end{tabular}
 \end{table}

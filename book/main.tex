@@ -40,6 +40,9 @@
 \usepackage{tabularx}
 \usepackage{array}
 
+% Better lists (needed for itemize options in tables)
+\usepackage{enumitem}
+
 % TikZ for diagrams
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, fit, backgrounds}
@@ -77,11 +80,15 @@
 
 % Headers and footers
 \makepagestyle{bizbook}
-\makeevenhead{bizbook}{\thepage}{}{\leftmark}
-\makeoddhead{bizbook}{\rightmark}{}{\thepage}
+\makeevenhead{bizbook}{\thepage}{}{\small\leftmark}
+\makeoddhead{bizbook}{\small\rightmark}{}{\thepage}
 \makeevenfoot{bizbook}{}{}{}
 \makeoddfoot{bizbook}{}{}{}
 \pagestyle{bizbook}
+
+% Shorten chapter/section marks to just title (no "CHAPTER X.")
+\createmark{chapter}{left}{shownumber}{}{. \space}
+\createmark{section}{right}{shownumber}{}{. \space}
 
 % Part styling
 \renewcommand{\partnamefont}{\normalfont\huge\scshape}

@@ -6,7 +6,7 @@
 
 The most important thing to understand about AI systems is that they do not understand anything in the way humans do.
 
-When you ask an AI ``What is the capital of France?'', it is not retrieving a fact from memory like you would. It is predicting that, given that question pattern, ``Paris'' is the most likely next token based on billions of text examples it saw during training.
+When you ask an AI ``What is the capital of France?'', it is not retrieving a fact from memory like you would. It is predicting that, given that question pattern, ``Paris'' is the most likely next word based on billions of text examples it saw during training.
 
 This distinction might seem academic, but it matters profoundly in practice:
 
@@ -63,7 +63,7 @@ AI generates content that follows patterns it learned during training:
 \begin{itemize}
     \item \textbf{Drafting standard documents:} Emails, reports, proposals, meeting agendas
     \item \textbf{Creating variations:} Multiple versions of marketing copy or product descriptions
-    \item \textbf{Code generation:} Writing boilerplate code, common functions, or test cases
+    \item \textbf{Spreadsheet formulas:} Creating calculations, templates, and analysis structures
     \item \textbf{Brainstorming:} Generating ideas, options, or approaches to consider
 \end{itemize}
 
@@ -143,27 +143,27 @@ A major technology company developed an AI tool to screen resumes. The system le
 
 This is not fixable by ``removing bias from the AI.'' The bias is in the patterns the AI learned. Addressing this requires carefully evaluating whether patterns in training data reflect real quality differences or historical discrimination.
 
-\subsection{Context Window Limitations}
+\subsection{Document Length Limitations}
 
-AI can only consider a limited amount of text at once---typically equivalent to 20-100 pages, depending on the system. For longer documents:
+AI can only consider a limited amount of text at once---typically equivalent to 20-100 pages, depending on the system. Think of it like working with a colleague who can only keep a certain number of pages in front of them at any time. For longer documents:
 
 \begin{itemize}
-    \item Information near the boundaries may be partially ignored
-    \item The AI might miss connections between distant parts of the document
+    \item Information at the beginning or end may receive less attention
+    \item The AI might miss connections between points discussed far apart in the document
     \item Summaries may emphasize some sections while neglecting others
 \end{itemize}
 
-If you need analysis of a 300-page report, understand that the AI cannot hold all of it in ``working memory'' simultaneously.
+If you need analysis of a 300-page annual report, understand that the AI cannot review all of it simultaneously. You may need to break the analysis into sections or focus on specific chapters.
 
 \section{Why Answers Change}
 
 The same prompt can produce different answers. This surprises people expecting software-like determinism. Understanding why this happens helps you decide when variability is acceptable and when it is problematic.
 
-\subsection{Temperature Settings}
+\subsection{Creativity Settings}
 
-Most AI systems have a ``temperature'' parameter that controls randomness. Higher temperature means more variability and creativity. Lower temperature means more consistent, conservative outputs.
+Most AI systems have a setting that controls how creative versus consistent the output is---vendors call this ``temperature'' but think of it as a creativity dial. Higher settings mean more variability and creative outputs. Lower settings mean more consistent, predictable results.
 
-For creative brainstorming, you want higher temperature. For factual extraction or standardized tasks, you want lower temperature.
+For strategic brainstorming or generating multiple marketing angles, you want more creativity. For extracting data from contracts or producing standardized reports, you want consistency. Some enterprise tools let you adjust this; others handle it automatically based on your task.
 
 \subsection{System Updates}
 
@@ -181,16 +181,16 @@ Minor wording changes can significantly shift outputs. ``Summarize this'' versus
 \centering
 \begin{tabularx}{\textwidth}{lXX}
 \toprule
-\textbf{Scenario} & \textbf{Variability} & \textbf{Mitigation} \\
+\textbf{Business Scenario} & \textbf{Variability} & \textbf{How to Manage} \\
 \midrule
-Creative writing & High (desirable) & Use higher temperature \\
-Data extraction & Low (required) & Use lower temperature, standardized prompts \\
-Analysis & Medium & Test multiple times, compare outputs \\
-Summarization & Medium & Specify desired structure/format \\
-Code generation & Medium & Provide detailed specifications \\
+Marketing brainstorming & High (desirable) & Use creative settings \\
+Contract data extraction & Low (required) & Use consistent settings, standardized prompts \\
+Competitive analysis & Medium & Test multiple times, compare outputs \\
+Executive summaries & Medium & Specify desired structure/format \\
+Report generation & Medium & Provide detailed templates \\
 \bottomrule
 \end{tabularx}
-\caption{Managing output variability by use case}
+\caption{Managing output variability by business use case}
 \end{table}
 
 \begin{tip}[Standardizing Critical Workflows]
@@ -266,16 +266,16 @@ Many people believe they need to understand AI deeply to use it effectively. Thi
 \subsection{What You Do NOT Need}
 
 \begin{itemize}
-    \item How neural networks work mathematically
-    \item Transformer architecture details
-    \item Training procedures and optimization algorithms
-    \item Hyperparameter tuning
-    \item The technical differences between GPT-4, Claude, and other models
-    \item Tensor operations or backpropagation
-    \item Fine-tuning or model customization techniques (unless you are building custom systems)
+    \item How the underlying technology works mathematically
+    \item Technical architecture details
+    \item How AI systems are trained or optimized
+    \item Configuration and tuning parameters
+    \item The technical differences between vendors (GPT-4, Claude, Gemini, etc.)
+    \item Engineering concepts like backpropagation or tensors
+    \item Model customization techniques (unless pursuing enterprise-scale custom AI)
 \end{itemize}
 
-These topics are fascinating if you are interested in AI research or engineering. For business use, they are not necessary.
+These topics are fascinating if you are interested in AI research or technology strategy. For day-to-day business use, they are not necessary.
 
 \subsection{What You DO Need}
 
@@ -287,7 +287,7 @@ These topics are fascinating if you are interested in AI research or engineering
     \item \textbf{Risk assessment:} Understanding privacy, security, and accuracy implications
 \end{itemize}
 
-Think of it as the difference between being a professional race car driver (who needs to understand vehicle dynamics) versus being a regular driver (who needs to know traffic rules, safety practices, and how to operate the vehicle).
+Think of it as the difference between an automotive engineer (who designs engines) versus a fleet manager (who needs to know how to evaluate vehicles, manage maintenance schedules, and optimize operations). You are the fleet manager, not the engineer.
 
 \begin{keyinsight}
 The right mental model for business leaders: AI is a powerful tool with known strengths and limitations. You need to understand those characteristics well enough to deploy the tool effectively and safely. You do not need to understand how the tool is built.
