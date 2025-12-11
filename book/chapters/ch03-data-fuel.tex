@@ -43,12 +43,7 @@ Their AI system learned to predict stockouts based solely on historical inventor
 
 Completeness isn't about capturing every possible data point. It's about identifying which signals matter for your specific use case and ensuring you're actually collecting them. This requires business judgment, not just technical capability.
 
-\textbf{Questions to ask your team:}
-\begin{itemize}
-\item What factors do our domain experts believe influence this outcome?
-\item Are we currently capturing data about those factors?
-\item What are we \textit{not} measuring that might matter?
-\end{itemize}
+When evaluating completeness, ask your team what factors your domain experts believe influence the outcome you're trying to predict. Find out whether you're currently capturing data about those factors. And critically, probe what you're \textit{not} measuring that might matter---the gaps are often more revealing than what you already have.
 
 \subsection{Consistent: The Same Thing Means the Same Thing}
 
@@ -60,13 +55,7 @@ A financial services firm merged with a competitor. The combined entity had thre
 When they tried to build a unified customer service AI, the system couldn't tell which interactions belonged to which customers. They spent eighteen months and millions of dollars on data integration before they could even begin the AI project.
 \end{realexample}
 
-Inconsistency manifests in many forms:
-\begin{itemize}
-\item Different teams using different definitions of key metrics (What counts as a "sale"? What defines an "active" customer?)
-\item Date formats varying across systems (MM/DD/YYYY vs. DD/MM/YYYY vs. ISO 8601)
-\item Units changing without documentation (revenue recorded in thousands in one place, in actual dollars elsewhere)
-\item Categorical data with slight variations ("NY" vs. "New York" vs. "NY State")
-\end{itemize}
+Inconsistency manifests in many forms. Different teams use different definitions of key metrics---what counts as a ``sale'' in marketing may differ from finance's definition, and what one department calls an ``active'' customer may include accounts that another department considers dormant. Date formats vary across systems, with some using MM/DD/YYYY, others DD/MM/YYYY, and still others ISO 8601. Units change without documentation: revenue recorded in thousands in one system appears in actual dollars elsewhere. Categorical data accumulates slight variations---``NY'' versus ``New York'' versus ``NY State''---that look identical to humans but confound automated systems.
 
 These seem like minor technical issues. They're not. They're organizational problems that create technical debt which eventually destroys AI initiatives.
 
@@ -82,12 +71,7 @@ A system trained on pre-pandemic customer behavior patterns, for example, would 
 
 Currency requirements vary by use case. A fraud detection system might need data refreshed every few seconds. A workforce planning model might work fine with monthly updates. The key is matching your data freshness to the pace at which the underlying patterns actually change.
 
-\textbf{Questions to ask your team:}
-\begin{itemize}
-\item How old is the data we're training on?
-\item How quickly do the patterns we're trying to predict actually change?
-\item Do we have a process for retraining models as new data arrives?
-\end{itemize}
+When assessing currency, find out how old the training data actually is. Ask how quickly the patterns you're trying to predict change in the real world---customer behavior, market conditions, competitive dynamics. And determine whether you have a process for retraining models as new data arrives, or whether the system will gradually become stale without anyone noticing.
 
 \subsection{Correct: The Data Accurately Represents What Happened}
 
@@ -258,45 +242,17 @@ Understanding data quality is one thing. Actually getting your data into a usabl
 
 At the most basic level, you can manually copy data from your systems and paste it into AI tool interfaces. This is how most organizations start using tools like ChatGPT for business tasks.
 
-\textbf{Advantages:}
-\begin{itemize}
-\item Zero technical infrastructure required
-\item Works immediately
-\item Complete control over what data is shared
-\item No integration costs
-\end{itemize}
+The approach requires zero technical infrastructure and works immediately. You maintain complete control over what data is shared, and there are no integration costs. However, this method does not scale beyond small tasks. The manual transfer introduces risk of errors, automation is impossible, and repeated tasks become time-consuming.
 
-\textbf{Limitations:}
-\begin{itemize}
-\item Doesn't scale beyond small tasks
-\item High risk of errors in manual transfer
-\item No automation possible
-\item Time-consuming for repeated tasks
-\end{itemize}
-
-\textbf{Appropriate for:} One-off analysis tasks, exploratory use, situations where you're testing whether AI can help before investing in integration.
+This approach is appropriate for one-off analysis tasks, exploratory use, and situations where you're testing whether AI can help before investing in integration.
 
 \subsection{Level 2: File Uploads}
 
 Many AI tools accept file uploads (CSV, Excel, PDF, etc.). This allows you to export data from your systems in batch and upload it to AI tools.
 
-\textbf{Advantages:}
-\begin{itemize}
-\item Handles larger datasets than copy-paste
-\item Reproducible (you can re-run with updated exports)
-\item Maintains data structure and formatting
-\item Still relatively simple to implement
-\end{itemize}
+File uploads handle larger datasets than copy-paste and create reproducible workflows---you can re-run analysis with updated exports. The approach maintains data structure and formatting and remains relatively simple to implement. The tradeoffs: the process is still manual and time-consuming, creates data security risks when files are accidentally shared or stored insecurely, provides no real-time data access, and requires someone to remember to do exports regularly.
 
-\textbf{Limitations:}
-\begin{itemize}
-\item Still manual and time-consuming
-\item Creates data security risks (files can be accidentally shared or stored insecurely)
-\item No real-time data access
-\item Requires someone to remember to do exports regularly
-\end{itemize}
-
-\textbf{Appropriate for:} Regular reporting tasks, monthly/quarterly analysis, situations where near-real-time data isn't necessary.
+This approach is appropriate for regular reporting tasks, monthly or quarterly analysis, and situations where near-real-time data isn't necessary.
 
 \begin{warning}[Data Security in File Uploads]
 When uploading business data to external AI services, you're transmitting potentially sensitive information outside your corporate network. Before implementing file upload workflows:
@@ -313,23 +269,9 @@ When uploading business data to external AI services, you're transmitting potent
 
 Automated connections allow your business systems to send data to and receive results from AI services without manual intervention. This is where you transition from manual workflows to AI that runs as part of your operations.
 
-\textbf{Advantages:}
-\begin{itemize}
-\item Fully automated---no staff time required per transaction
-\item Can operate in real-time or near-real-time
-\item AI becomes embedded in operational workflows
-\item Scales to handle high volumes cost-effectively
-\end{itemize}
+The benefits are substantial: fully automated processing requires no staff time per transaction, can operate in real-time or near-real-time, embeds AI directly into operational workflows, and scales to handle high volumes cost-effectively. The investment requirements are equally substantial: IT involvement for setup, ongoing maintenance as systems evolve, contingency plans for connection failures, and upfront costs before you see returns.
 
-\textbf{Limitations:}
-\begin{itemize}
-\item Requires IT involvement to set up connections
-\item Ongoing maintenance as systems evolve
-\item Need contingency plans when connections fail
-\item Initial setup investment before seeing returns
-\end{itemize}
-
-\textbf{Appropriate for:} High-volume business processes, workflows that need to scale, situations where AI decisions need to happen automatically (e.g., customer inquiries, order processing, fraud detection).
+This level is appropriate for high-volume business processes, workflows that need to scale, and situations where AI decisions need to happen automatically---customer inquiry routing, order processing, fraud detection, and similar use cases.
 
 \begin{realexample}[Automated Integration in Practice]
 A logistics company connected their dispatch system to an AI routing service. When new delivery orders arrive, the system automatically:
@@ -343,37 +285,15 @@ A logistics company connected their dispatch system to an AI routing service. Wh
 This happens hundreds of times per day with no human intervention. The integration took three months to build, but now saves approximately 15\% on fuel costs and improves delivery times.
 \end{realexample}
 
-\textbf{Questions to ask when considering automated integration:}
-\begin{itemize}
-\item Do we have IT resources available, or do we need an outside vendor?
-\item What is the expected ROI given setup costs versus the manual alternative?
-\item Does the AI vendor have a track record of reliable service?
-\item What happens if the connection fails---do we have fallback procedures?
-\item Who owns ongoing maintenance and monitoring?
-\end{itemize}
+Before pursuing automated integration, evaluate whether you have IT resources available or need an outside vendor. Calculate the expected ROI given setup costs versus the manual alternative. Assess whether the AI vendor has a track record of reliable service. Determine what happens if the connection fails and whether you have fallback procedures. And clarify who owns ongoing maintenance and monitoring.
 
 \subsection{Level 4: Custom Fine-Tuning}
 
 The deepest form of integration is training or fine-tuning an AI model specifically on your data. This means the AI learns patterns unique to your business, products, customers, and operations.
 
-\textbf{Advantages:}
-\begin{itemize}
-\item Model learns patterns specific to your business
-\item Can handle specialized terminology and concepts
-\item Potentially better performance than general-purpose models
-\item Data stays within your control (if self-hosted)
-\end{itemize}
+A custom model learns patterns specific to your business, handles specialized terminology and concepts, potentially outperforms general-purpose models on your specific tasks, and keeps data within your control if self-hosted. The costs are significant: you need substantial data volume (typically thousands to millions of examples), the process is expensive and technically complex, the model needs ongoing updates as business patterns change, specialized expertise is required (whether internal or contracted), and data quality becomes absolutely critical.
 
-\textbf{Limitations:}
-\begin{itemize}
-\item Requires significant data volume (typically thousands to millions of examples)
-\item Expensive and technically complex
-\item Needs ongoing updates as business patterns change
-\item Requires specialized expertise (internal team or contracted)
-\item Data quality becomes absolutely critical
-\end{itemize}
-
-\textbf{Appropriate for:} Core competitive differentiators, specialized domains where general models fail, situations where you have both sufficient data and technical resources.
+This level is appropriate only for core competitive differentiators, specialized domains where general models demonstrably fail, and situations where you have both sufficient data and technical resources to execute.
 
 \begin{keyinsight}
 Start simple and increase complexity only when justified by business value. Most organizations should begin with manual copy-paste or file uploads, move to automated connections for high-value repeated tasks, and only pursue custom training when general-purpose AI demonstrably fails at critical use cases.
