@@ -49,6 +49,53 @@ Before spending a dollar on AI, ask these questions in order:
 
 Most organizations never need to go past Step 2. If you are at Step 4, ask: ``Why can no existing tool solve this?'' If the answer is not compelling, you are probably making a mistake.
 
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    node distance=1.2cm,
+    startstop/.style={rectangle, rounded corners, minimum width=3.5cm, minimum height=0.8cm, text centered, draw=black, fill=blue!20, font=\small},
+    decision/.style={diamond, minimum width=2.5cm, minimum height=1cm, text centered, draw=black, fill=yellow!20, font=\small, aspect=2.5},
+    process/.style={rectangle, minimum width=3.5cm, minimum height=0.8cm, text centered, draw=black, fill=green!20, font=\small},
+    cost/.style={rectangle, rounded corners, minimum width=2.5cm, minimum height=0.6cm, text centered, draw=black, fill=gray!10, font=\scriptsize},
+    arrow/.style={thick,->,>=Stealth}
+]
+
+% Nodes
+\node (start) [startstop] {AI Need Identified};
+\node (q1) [decision, below=of start] {General tools work?};
+\node (use1) [process, right=2.5cm of q1] {Use ChatGPT/Claude};
+\node (cost1) [cost, below=0.3cm of use1] {\$20-60/mo per user};
+
+\node (q2) [decision, below=of q1] {Specialized tools exist?};
+\node (use2) [process, right=2.5cm of q2] {Use Domain Tool};
+\node (cost2) [cost, below=0.3cm of use2] {\$500-5K/month};
+
+\node (q3) [decision, below=of q2] {Can customize platform?};
+\node (use3) [process, right=2.5cm of q3] {Customize Existing};
+\node (cost3) [cost, below=0.3cm of use3] {\$5K-50K setup};
+
+\node (q4) [decision, below=of q3] {Competitive necessity?};
+\node (use4) [process, right=2.5cm of q4] {Build Custom};
+\node (cost4) [cost, below=0.3cm of use4] {\$500K-5M+};
+
+\node (stop) [startstop, below=of q4, fill=red!20] {Reconsider Need};
+
+% Arrows
+\draw [arrow] (start) -- (q1);
+\draw [arrow] (q1) -- node[above, font=\scriptsize] {Yes} (use1);
+\draw [arrow] (q1) -- node[right, font=\scriptsize] {No} (q2);
+\draw [arrow] (q2) -- node[above, font=\scriptsize] {Yes} (use2);
+\draw [arrow] (q2) -- node[right, font=\scriptsize] {No} (q3);
+\draw [arrow] (q3) -- node[above, font=\scriptsize] {Yes} (use3);
+\draw [arrow] (q3) -- node[right, font=\scriptsize] {No} (q4);
+\draw [arrow] (q4) -- node[above, font=\scriptsize] {Yes} (use4);
+\draw [arrow] (q4) -- node[right, font=\scriptsize] {No} (stop);
+
+\end{tikzpicture}
+\caption{The AI Build-or-Buy Decision Flowchart: Start with existing tools and only move to custom solutions when truly necessary}
+\label{fig:build-buy-flowchart}
+\end{figure}
+
 \begin{keyinsight}
 The default answer should be ``use existing tools.'' Custom AI development is expensive, risky, and usually unnecessary. Move up the complexity ladder only when lower steps genuinely cannot solve your problem.
 \end{keyinsight}

@@ -56,6 +56,48 @@ Did the pilot meet success criteria? What did we learn? Proceed to scale? Pivot?
     \item Monitor and maintain
 \end{itemize}
 
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    phase/.style={rectangle, rounded corners, minimum width=2.2cm, minimum height=1.4cm, text centered, draw=black, line width=1pt, font=\scriptsize, align=center},
+    arrow/.style={thick, ->, >=Stealth},
+    week/.style={font=\tiny, text=gray}
+]
+
+% Phases
+\node[phase, fill=blue!20] (p1) at (0,0) {\textbf{Define}\\Problem};
+\node[phase, fill=blue!30] (p2) at (2.8,0) {\textbf{Assess}\\Feasibility};
+\node[phase, fill=yellow!30] (p3) at (5.6,0) {\textbf{Design}\\Pilot};
+\node[phase, fill=yellow!40] (p4) at (8.4,0) {\textbf{Execute}\\Pilot};
+\node[phase, fill=orange!30, minimum height=1.6cm] (p5) at (11.2,0) {\textbf{Decision}\\Go/No-Go};
+\node[phase, fill=green!30] (p6) at (14,0) {\textbf{Scale}\\Deploy};
+
+% Arrows
+\draw[arrow] (p1) -- (p2);
+\draw[arrow] (p2) -- (p3);
+\draw[arrow] (p3) -- (p4);
+\draw[arrow] (p4) -- (p5);
+\draw[arrow] (p5) -- (p6);
+
+% Week labels
+\node[week] at (0, -1) {Week 1-2};
+\node[week] at (2.8, -1) {Week 2-3};
+\node[week] at (5.6, -1) {Week 3-4};
+\node[week] at (8.4, -1) {Week 4-8};
+\node[week] at (11.2, -1) {Week 8};
+\node[week] at (14, -1) {Week 9+};
+
+% Kill path from decision
+\draw[thick, ->, >=Stealth, red!60] (p5.south) -- ++(0,-0.8) node[below, font=\scriptsize, text=red!70!black] {Kill or Pivot};
+
+% Feedback loop
+\draw[thick, ->, >=Stealth, gray, dashed] (p4.north) to[bend left=40] node[above, font=\tiny] {Iterate} (p3.north);
+
+\end{tikzpicture}
+\caption{The AI Implementation Lifecycle: Six phases from problem definition to scaled deployment, with a critical decision gate before major investment}
+\label{fig:implementation-lifecycle}
+\end{figure}
+
 \begin{keyinsight}
 The most expensive AI initiatives are not the ones that fail in pilot. They are the ones that skip pilot entirely and fail at scale. Always validate with a pilot before committing significant resources.
 \end{keyinsight}
@@ -171,6 +213,55 @@ AI capability develops in stages. Trying to jump to advanced stages without buil
 \end{tabular}
 \caption{AI capability maturity levels}
 \end{table}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=0.9]
+    % Staircase steps
+    \fill[blue!15] (0,0) rectangle (3,1);
+    \fill[blue!25] (3,1) rectangle (6,2);
+    \fill[blue!35] (6,2) rectangle (9,3);
+    \fill[blue!50] (9,3) rectangle (12,4);
+
+    % Step outlines
+    \draw[thick] (0,0) -- (0,1) -- (3,1) -- (3,2) -- (6,2) -- (6,3) -- (9,3) -- (9,4) -- (12,4);
+    \draw[thick] (0,0) -- (12,0) -- (12,4);
+
+    % Level labels
+    \node[font=\small\bfseries] at (1.5, 0.6) {Level 1};
+    \node[font=\scriptsize] at (1.5, 0.25) {Experimenting};
+
+    \node[font=\small\bfseries] at (4.5, 1.6) {Level 2};
+    \node[font=\scriptsize] at (4.5, 1.25) {Applying};
+
+    \node[font=\small\bfseries] at (7.5, 2.6) {Level 3};
+    \node[font=\scriptsize] at (7.5, 2.25) {Systematizing};
+
+    \node[font=\small\bfseries] at (10.5, 3.6) {Level 4};
+    \node[font=\scriptsize] at (10.5, 3.25) {Optimizing};
+
+    % Time arrow
+    \draw[thick, ->, >=Stealth] (0, -0.8) -- (12, -0.8) node[right, font=\small] {Time};
+
+    % Time markers
+    \node[font=\tiny] at (1.5, -1.1) {Months 1-3};
+    \node[font=\tiny] at (4.5, -1.1) {Months 4-6};
+    \node[font=\tiny] at (7.5, -1.1) {Months 7-12};
+    \node[font=\tiny] at (10.5, -1.1) {Year 2+};
+
+    % Value arrow
+    \draw[thick, ->, >=Stealth] (-0.8, 0) -- (-0.8, 4.5) node[above, font=\small, rotate=90, anchor=south] {Business Value};
+
+    % Key activities (using text width for line breaks)
+    \node[font=\tiny, text width=2.2cm, align=center] at (1.5, -1.8) {Try tools, gather learnings};
+    \node[font=\tiny, text width=2.2cm, align=center] at (4.5, -1.8) {Find champions, create guidelines};
+    \node[font=\tiny, text width=2.2cm, align=center] at (7.5, -1.8) {Formal training, measure ROI};
+    \node[font=\tiny, text width=2.2cm, align=center] at (10.5, -1.8) {Scale successes, kill failures};
+
+\end{tikzpicture}
+\caption{AI Capability Maturity Staircase: Organizations must progress through each level to build sustainable AI capability}
+\label{fig:maturity-staircase}
+\end{figure}
 
 \textbf{Building capability over time:}
 \begin{itemize}

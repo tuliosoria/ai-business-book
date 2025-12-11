@@ -116,6 +116,51 @@ Consider a common business scenario: you want to understand the customer journey
 
 If these systems can't reliably identify that they're all talking about the same customer, you can't build a unified view of the customer journey. Your AI will see these as disconnected events rather than a coherent pattern.
 
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    cbox/.style={rectangle, rounded corners, minimum width=2.8cm, minimum height=1.8cm, text centered, draw=black, line width=1pt, font=\small, align=center},
+    clabel/.style={font=\scriptsize, text width=2.5cm, align=center}
+]
+
+% Central circle
+\node[circle, draw=black, line width=2pt, fill=blue!20, minimum size=2.5cm, font=\small\bfseries, align=center] (center) {AI-Ready\\Data};
+
+% Five C's around the center
+\node[cbox, fill=green!20] (complete) at (90:3.5cm) {\textbf{Complete}};
+\node[clabel, above=0.1cm of complete] {You have what\\you need};
+
+\node[cbox, fill=yellow!20] (consistent) at (162:3.5cm) {\textbf{Consistent}};
+\node[clabel, left=0.1cm of consistent] {Same thing\\means same thing};
+
+\node[cbox, fill=orange!20] (current) at (234:3.5cm) {\textbf{Current}};
+\node[clabel, below left=0.1cm of current] {Reflects\\reality now};
+
+\node[cbox, fill=red!20] (correct) at (306:3.5cm) {\textbf{Correct}};
+\node[clabel, below right=0.1cm of correct] {Accurate\\representation};
+
+\node[cbox, fill=purple!20] (connected) at (18:3.5cm) {\textbf{Connected}};
+\node[clabel, right=0.1cm of connected] {Can be linked\\across systems};
+
+% Connecting lines
+\draw[thick, gray] (center) -- (complete);
+\draw[thick, gray] (center) -- (consistent);
+\draw[thick, gray] (center) -- (current);
+\draw[thick, gray] (center) -- (correct);
+\draw[thick, gray] (center) -- (connected);
+
+% Outer arc connections (showing interconnection)
+\draw[dashed, gray!50] (complete) to[bend left=15] (connected);
+\draw[dashed, gray!50] (connected) to[bend left=15] (correct);
+\draw[dashed, gray!50] (correct) to[bend left=15] (current);
+\draw[dashed, gray!50] (current) to[bend left=15] (consistent);
+\draw[dashed, gray!50] (consistent) to[bend left=15] (complete);
+
+\end{tikzpicture}
+\caption{The Five C's of AI-Ready Data: All five qualities must be present for AI systems to generate reliable business value}
+\label{fig:five-cs-data}
+\end{figure}
+
 \begin{keyinsight}
 The five qualities of good data---Complete, Consistent, Current, Correct, and Connected---are not optional nice-to-haves. They are prerequisites for AI systems that generate business value. Funding data quality is not a cost center; it's a strategic investment in making AI possible.
 \end{keyinsight}

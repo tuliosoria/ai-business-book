@@ -96,6 +96,48 @@ Novel reasoning & Low & Critical (often fails) \\
 \caption{AI capability levels and verification requirements}
 \end{table}
 
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=0.9]
+    % Draw axes
+    \draw[thick, ->] (0,0) -- (10,0) node[right, font=\small] {AI Capability};
+    \draw[thick, ->] (0,0) -- (0,8) node[above, font=\small] {Business Risk};
+
+    % Quadrant labels
+    \node[font=\footnotesize] at (2.5, 7.5) {\textbf{AVOID}};
+    \node[font=\footnotesize] at (2.5, 7) {Low capability, high risk};
+    \node[font=\footnotesize, text=red!70!black] at (2.5, 6.5) {Human only};
+
+    \node[font=\footnotesize] at (7.5, 7.5) {\textbf{VERIFY HEAVILY}};
+    \node[font=\footnotesize] at (7.5, 7) {High capability, high risk};
+    \node[font=\footnotesize, text=orange!80!black] at (7.5, 6.5) {AI draft + expert review};
+
+    \node[font=\footnotesize] at (2.5, 1.5) {\textbf{RECONSIDER}};
+    \node[font=\footnotesize] at (2.5, 1) {Low capability, low risk};
+    \node[font=\footnotesize, text=gray] at (2.5, 0.5) {May not be worth effort};
+
+    \node[font=\footnotesize] at (7.5, 1.5) {\textbf{AUTOMATE}};
+    \node[font=\footnotesize] at (7.5, 1) {High capability, low risk};
+    \node[font=\footnotesize, text=green!60!black] at (7.5, 0.5) {Quick review sufficient};
+
+    % Quadrant dividers
+    \draw[dashed, gray] (5,0) -- (5,8);
+    \draw[dashed, gray] (0,4) -- (10,4);
+
+    % Plot tasks
+    \node[fill=green!30, rounded corners, font=\scriptsize, inner sep=2pt] at (8.5, 2) {Format conversion};
+    \node[fill=green!30, rounded corners, font=\scriptsize, inner sep=2pt] at (7, 2.8) {Summarization};
+    \node[fill=yellow!30, rounded corners, font=\scriptsize, inner sep=2pt] at (7.5, 4.5) {Data extraction};
+    \node[fill=orange!30, rounded corners, font=\scriptsize, inner sep=2pt] at (6, 5.5) {Translation};
+    \node[fill=orange!30, rounded corners, font=\scriptsize, inner sep=2pt] at (5.5, 6.5) {Factual answers};
+    \node[fill=red!30, rounded corners, font=\scriptsize, inner sep=2pt] at (2.5, 5) {Novel reasoning};
+    \node[fill=red!30, rounded corners, font=\scriptsize, inner sep=2pt] at (3, 6) {Strategic decisions};
+
+\end{tikzpicture}
+\caption{AI Task Selection Matrix: Match task type to appropriate oversight level}
+\label{fig:ai-task-matrix}
+\end{figure}
+
 \section{Common Limitations and Failure Modes}
 
 AI fails in predictable ways. Knowing these failure modes helps you avoid costly mistakes.
