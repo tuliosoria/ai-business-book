@@ -2,6 +2,113 @@
 
 \epigraph{The greatest enemy of knowledge is not ignorance, it is the illusion of knowledge.}{Stephen Hawking}
 
+\section{A Brief History: From Mechanical Computation to Generative AI}
+
+To understand why AI is suddenly everywhere, it helps to know where it came from. The story spans decades and involves surprising dead ends, unexpected breakthroughs, and a fundamental shift in what became possible.
+
+\subsection{The Birth of Computers (1930s–1950s)}
+
+Computers were not invented to do AI. They were invented to do math faster. In the 1930s, mathematicians and engineers asked a simple question: could a machine follow logical rules to solve problems? Alan Turing posed this in a theoretical way. John Atanasoff and Clifford Berry built the first electronic computer. By the 1940s, ENIAC (Electronic Numerical Integrator and Computer) was performing calculations for military purposes that would have taken human ``computers'' (actual people performing calculations) weeks.
+
+The inventors had no grand vision of machines thinking like humans. They wanted to solve ballistics equations and break encryption codes. Computers were expensive, room-sized, and specialized tools.
+
+Yet embedded in the question ``Can a machine follow logical rules?'' was the seed of something bigger: if a machine can follow rules, could it follow rules about thinking itself?
+
+\subsection{Early AI Dreams (1956–1974)}
+
+In 1956, a small group of researchers at Dartmouth College organized a summer workshop. They believed that human intelligence could be described precisely enough that machines could replicate it. They called it ``Artificial Intelligence.'' The optimism was breathtaking.
+
+Over the next two decades, researchers built systems that could:
+
+\begin{itemize}
+\item Play checkers and chess by searching through possible moves
+\item Solve mathematical problems through symbolic reasoning
+\item Understand simple sentences by parsing grammar rules
+\end{itemize}
+
+These were impressive, and the field attracted significant government funding. The dream seemed within reach: if machines could search through logical possibilities faster than humans, maybe they could think faster too.
+
+But by the mid-1970s, reality collided with promise. Chess-playing programs could beat amateurs but not grandmasters. Language understanding systems broke down on any sentence that deviated from narrow training. The problems turned out to be harder than anyone expected. Governments cut funding. The AI winter had begun.
+
+\begin{keyinsight}
+The first AI winter teaches an important lesson: enthusiasm without capability is expensive. Executives promised more than researchers could deliver. When the gap between hype and results became undeniable, funding dried up for nearly a decade.
+\end{keyinsight}
+
+\subsection{The AI Comeback: Machine Learning and Expert Systems (1980s–1990s)}
+
+By the 1980s, a different approach emerged. Instead of trying to encode human knowledge into logical rules, researchers began building systems that learned patterns from data. This was machine learning.
+
+Expert systems became the first commercial success. They encoded the knowledge of human experts (a radiologist, a mechanic, a financial analyst) into decision rules. A bank could deploy a system trained on thousands of loan decisions to automatically evaluate new applications. An insurance company could use a system trained on repair histories to estimate claim costs. These systems worked---not perfectly, but well enough to create business value.
+
+But they remained narrow. An expert system trained on loan approvals could not help with insurance claims. It could not transfer what it ``learned'' (really, what humans programmed it to know) to new domains.
+
+\subsection{The Internet and Data Explosion (1990s–2010s)}
+
+The internet changed the game. Suddenly, companies had access to massive amounts of data: user behavior (clickstreams), customer feedback (reviews), transaction records, sensor data from IoT devices. Machine learning algorithms thrived on data.
+
+By the 2000s, AI was everywhere---though most people did not call it that:
+
+\begin{itemize}
+\item \textbf{Search engines} ranked pages using machine learning algorithms trained on billions of examples of good vs. bad search results.
+\item \textbf{Recommendation systems} at Netflix and Amazon learned which shows and products users liked by observing their behavior.
+\item \textbf{Spam filters} classified incoming emails by learning patterns from millions of examples of spam and legitimate mail.
+\item \textbf{Credit scoring and fraud detection} flagged unusual transactions using systems trained on historical data.
+\item \textbf{Mobile phones} learned faces (facial recognition) and understood spoken commands (voice recognition) using deep neural networks.
+\end{itemize}
+
+These systems were not called ``AI'' in marketing---they were features. But they were machine learning, and they worked. Companies competing on these systems had massive advantages. Google's ranking algorithm was more valuable than any physical asset.
+
+The term ``AI'' fell out of fashion because it was too loaded with hype and unfulfilled promises. Engineers simply said ``machine learning'' or ``data science'' and got on with building valuable systems.
+
+\subsection{Deep Learning and Modern AI (2012–2021)}
+
+In 2012, a computer vision system trained on deep neural networks dramatically outperformed traditional methods at recognizing objects in images. Deep learning had arrived.
+
+For the next decade, deep learning systems drove breakthroughs:
+
+\begin{itemize}
+\item \textbf{Computer vision} systems could identify people, objects, and scenes almost as well as humans.
+\item \textbf{Natural language processing} could translate between languages, understand sentiment in text, and generate plausible (if repetitive) responses.
+\item \textbf{Speech recognition} became accurate enough for virtual assistants and real-time transcription.
+\item \textbf{Game-playing systems} defeated world champions in chess, Go, and competitive video games.
+\end{itemize}
+
+Companies like Google, Facebook, and Amazon built enormous AI research teams. Startups raised billions on the premise that AI would transform every industry. Yet for most businesses and employees, the impact was still hidden or indirect. AI was a backend technology driving features you used without thinking about it.
+
+The big breakthrough---language models that could engage in extended conversation---was coming, but not quite yet.
+
+\subsection{The Generative AI Leap (2022–Present)}
+
+In November 2022, OpenAI released ChatGPT. Within two months, it had one hundred million users---faster adoption than any consumer application in history.
+
+Why the sudden shift? Three ingredients aligned:
+
+\begin{enumerate}
+\item \textbf{Scale:} Language models trained on hundreds of billions of words could capture patterns that smaller models missed. When you scale up the data and compute, something changes---qualitatively.
+\item \textbf{Instruction tuning:} Researchers figured out how to train models to follow instructions and generate coherent multi-paragraph responses, not just complete sentences.
+\item \textbf{Accessible interface:} ChatGPT was not a research paper or a specialized tool. Anyone with a web browser could interact with it in plain English.
+\end{enumerate}
+
+Suddenly, a tool could write emails, draft reports, debug code, and explain concepts---and do it well enough to be immediately useful. The leap was not purely technical (researchers had the fundamentals) but practical: these models became tools people could actually use.
+
+What changed is not just capability. It is accessibility. For the first time, powerful AI did not require data science expertise, massive infrastructure investment, or years of custom development. It was available to anyone with a prompt.
+
+\begin{realexample}[The Difference GenAI Made]
+A management consulting firm spent 2019–2022 building an internal tool to generate client presentations. It required a dedicated data science team, cost millions in development, and worked only for standardized presentations.
+
+In late 2022, junior consultants started using ChatGPT to draft presentation decks. Within weeks, the tool was unofficially in use across the firm. The expensive internal system was quietly retired. The results were not always perfect, but they were fast and cheap. The firm repurposed the data science team to higher-value work.
+
+This story repeated across thousands of organizations in 2023–2024.
+\end{realexample}
+
+\subsection{Why This Time Is Different}
+
+Throughout the history of AI, there was always a gap between capability and access. In the 1950s, only researchers with access to million-dollar computers could do AI research. In the 1990s, you needed a data science team and years of development. Even in 2020, building a working recommendation system or chatbot required significant expertise and infrastructure.
+
+That gap has closed. Today, a high school student can use GPT-4 to draft a research paper. A small business owner can use Claude to analyze customer feedback. A sales team can use Copilot to draft proposals. No PhD required. No infrastructure investment required.
+
+This is not the first time AI promised to transform everything. But it is the first time the tools are accessible enough, capable enough, and integrated into everyday workflows that the adoption curve looks different. The chicken-and-egg problem is solved: you do not need to implement a huge AI project to see value. You can start with a prompt.
+
 \section{The Many Meanings of ``AI''}
 
 Every quarter, someone walks into a board meeting with a slide deck featuring ``AI-powered'' solutions. The term has been stretched to cover everything from spam filters to autonomous vehicles. This creates confusion---and confusion is expensive.
