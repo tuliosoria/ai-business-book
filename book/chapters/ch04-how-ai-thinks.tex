@@ -4,7 +4,7 @@
 
 \section{Prediction, Not Understanding}
 
-The most important thing to understand about AI systems is that they do not understand anything in the way humans do.
+The most important thing to understand about AI systems is that they do not understand anything in the way humans do. Chapter 2 explained that generative AI works by predicting what text should come next. This chapter goes deeper into what that means in practice---because understanding ``prediction is not understanding'' separates effective AI users from those who are constantly surprised by what AI gets wrong.
 
 When you ask an AI ``What is the capital of France?'', it is not retrieving a fact from memory like you would. It is predicting that, given that question pattern, ``Paris'' is the most likely next word based on billions of text examples it saw during training.
 
@@ -15,7 +15,7 @@ Think of it this way: if you trained a parrot by exposing it to millions of busi
 Large language models are vastly more sophisticated than parrots, but the fundamental principle holds. They predict statistically likely continuations. They do not understand meaning.
 
 \begin{keyinsight}
-AI generates predictions about what text should come next, not retrievals of knowledge or conclusions from reasoning. The output looks intelligent because it learned from intelligent text, not because the system thinks.
+AI generates predictions about what text should come next, not retrievals of knowledge or conclusions from reasoning. The output looks intelligent because it learned from intelligent text, not because the system thinks. This is the parrot principle, and it explains both AI's remarkable strengths and its surprising failures.
 \end{keyinsight}
 
 \section{Strengths You Can Rely On}
@@ -109,7 +109,7 @@ AI fails in predictable ways. Knowing these failure modes helps you avoid costly
 
 \subsection{Hallucinations}
 
-AI will confidently state false information. It might cite papers that do not exist, attribute quotes to people who never said them, or describe features that products do not have. This happens because the AI is generating plausible-sounding text, not retrieving verified facts.
+AI will confidently state false information. It might cite papers that do not exist, attribute quotes to people who never said them, or describe features that products do not have. This is the parrot principle in action: the AI generates plausible-sounding text based on patterns it learned, not because it has verified facts.
 
 \begin{warning}[The Fake Case Citation Disaster]
 In 2023, lawyers submitted a legal brief to federal court that cited multiple precedent cases. The cases sounded legitimate. The citations looked correct. The problem: none of the cases existed. They were AI hallucinations. The AI generated plausible-looking legal citations because it had learned the pattern of how citations look, but it did not have access to actual case law. The lawyers faced sanctions for not verifying the AI output.
