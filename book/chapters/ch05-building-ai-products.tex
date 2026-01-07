@@ -1,0 +1,323 @@
+\chapter{Building AI-Powered Products}
+
+When prototypes become cheap, strategy becomes more important, not less. Because now it's easier than ever to build something that looks impressive and does nothing.
+
+This chapter is about PMing AI products—how to scope them, integrate them, test them, and ship them. Not as a scientist or an engineer, but as a product manager who's accountable for outcomes.
+
+\section{The AI Product Reality Check}
+
+Let me start with some uncomfortable honesty.
+
+Most AI features don't work as well as the demo. The demo shows the best case. Production shows the distribution of cases—including the confusing, the wrong, and the embarrassing.
+
+Most AI features don't move metrics as much as hoped. Users are impressed by AI... until they're not. The novelty wears off. What matters is whether the feature actually solves a problem better than the alternative.
+
+Most AI features are harder to maintain than expected. Models need updating. Edge cases need handling. Users find ways to break things that nobody anticipated.
+
+None of this means you shouldn't build AI features. It means you should build them with eyes open. The hype is real. The challenges are also real.
+
+\section{Scoping AI Features}
+
+The biggest mistake in AI product development is starting with ``let's add AI'' instead of ``let's solve this problem.''
+
+\subsection{Problem-First, Not Technology-First}
+
+Before you build anything with AI, answer these questions:
+\begin{itemize}
+    \item What user problem are we solving?
+    \item How are users solving it today?
+    \item Why is that solution inadequate?
+    \item How would AI make it better (not cooler—better)?
+    \item What's the simplest test of whether AI would help?
+\end{itemize}
+
+If you can't answer these clearly, you're not ready to build. You're ready to generate demos that impress stakeholders but disappoint users.
+
+\subsection{The AI Advantage Test}
+
+AI should do one of these things for your feature:
+\begin{itemize}
+    \item \textbf{Make something possible that wasn't before}: Truly new capabilities that didn't exist
+    \item \textbf{Make something faster that was slow}: Automation of tasks that were manual
+    \item \textbf{Make something better that was mediocre}: Quality improvement over existing solutions
+    \item \textbf{Make something cheaper that was expensive}: Cost reduction for existing capabilities
+\end{itemize}
+
+If your AI feature doesn't clearly fit one of these, question whether AI is the right approach. Sometimes a well-designed form beats a chatbot. Sometimes a simple rule beats a model. Don't use AI because it's impressive. Use it because it's effective.
+
+\subsection{Scope Creep Warning}
+
+AI features tend to expand in scope. ``Let's add a simple summarization feature'' becomes ``let's add a full-featured AI assistant'' faster than you'd expect.
+
+Fight this. Scope AI features tightly. Define what the feature does and—critically—what it doesn't do. Set boundaries early and defend them.
+
+The tightest scope that still tests the hypothesis. That's what you're aiming for.
+
+\section{Designing for AI's Limitations}
+
+AI products fail when they're designed for the best case instead of the real case. Good AI product design accounts for limitations.
+
+\subsection{Design for Uncertainty}
+
+AI outputs are probabilistic. They're not always right, and they're not always confident when they should be.
+
+Design implications:
+\begin{itemize}
+    \item \textbf{Show confidence levels when appropriate}: Let users know when the AI is uncertain
+    \item \textbf{Make editing easy}: Users should be able to quickly correct AI outputs
+    \item \textbf{Provide alternatives}: Offer multiple options rather than a single ``answer''
+    \item \textbf{Enable override}: Users should always be able to reject AI suggestions
+\end{itemize}
+
+\subsection{Design for Failure}
+
+AI will fail. Sometimes it will fail badly. Design for this.
+\begin{itemize}
+    \item \textbf{Graceful degradation}: What happens when the AI is wrong or unavailable?
+    \item \textbf{Clear error states}: Help users understand what went wrong and what to do
+    \item \textbf{Feedback mechanisms}: Let users report problems easily
+    \item \textbf{Human fallback}: Have a path to human assistance for complex failures
+\end{itemize}
+
+The goal isn't perfect AI. It's AI that fails gracefully and recovers well.
+
+\subsection{Design for Trust Calibration}
+
+Users don't know how much to trust AI. Some trust too much (accepting everything without review). Some trust too little (ignoring useful suggestions). Your design should help calibrate trust appropriately.
+\begin{itemize}
+    \item \textbf{Explain what the AI does}: Help users understand capabilities and limitations
+    \item \textbf{Show the AI's work when possible}: Let users see why the AI made a recommendation
+    \item \textbf{Build trust gradually}: Start with low-stakes suggestions before high-stakes ones
+    \item \textbf{Make verification easy}: Support users who want to check AI outputs
+\end{itemize}
+
+\section{The Build Process}
+
+Building AI products involves some unique considerations in the development process.
+
+\subsection{Prototype with Real Models}
+
+Paper prototypes and wireframes don't capture AI behavior. You need to prototype with actual models to understand what's possible and what the experience really feels like.
+
+Start with off-the-shelf models and APIs. Test the core interaction before investing in custom solutions. You'll learn a lot about what works and what doesn't before writing much code.
+
+\subsection{Data Requirements}
+
+AI features often need data. Sometimes training data. Sometimes context data. Sometimes evaluation data. Understand these requirements early.
+
+Questions to ask:
+\begin{itemize}
+    \item What data does the model need to perform well?
+    \item Do we have that data?
+    \item If not, how would we get it?
+    \item What are the privacy and compliance implications?
+    \item How does data quality affect output quality?
+\end{itemize}
+
+Data problems kill AI projects. Surface them early.
+
+\subsection{Prompt Engineering vs. Fine-Tuning vs. RAG}
+
+You have options for customizing AI behavior:
+
+\textbf{Prompt engineering}: Crafting inputs to get better outputs from general models. Fastest to implement, most flexible, but limited in how much you can customize.
+
+\textbf{Retrieval-Augmented Generation (RAG)}: Connecting models to your own documents and data. Good for grounding responses in specific information. More setup, but more control over knowledge.
+
+\textbf{Fine-tuning}: Training models on your specific data to improve performance on specific tasks. Most powerful customization, but most expensive and slowest to implement.
+
+Start with prompting. Move to RAG if you need specific knowledge. Consider fine-tuning only when other approaches are insufficient. Don't over-engineer before you've validated the use case.
+
+\subsection{Evaluation Before Launch}
+
+AI features need evaluation frameworks. Not just ``does it work?'' but ``how well does it work across the distribution of real inputs?''
+
+Build evaluation sets:
+\begin{itemize}
+    \item Representative inputs that reflect real usage
+    \item Edge cases that stress the system
+    \item Adversarial inputs that might cause problems
+    \item Clear success criteria for each
+\end{itemize}
+
+Run evaluations regularly. Before launch, after changes, on a cadence. This is how you catch regressions and maintain quality.
+
+\section{Testing AI Products}
+
+Testing AI products is different from testing traditional software.
+
+\subsection{The Testing Spectrum}
+
+\textbf{Unit testing}: Does the code work correctly? This part is traditional software testing.
+
+\textbf{Integration testing}: Does the AI integrate correctly with the rest of the system? Also relatively traditional.
+
+\textbf{Model testing}: Does the AI produce good outputs for the inputs it receives? This is where things get interesting.
+
+\textbf{User testing}: Do users actually find the AI helpful? This is where assumptions get challenged.
+
+All four layers matter. Don't skip any.
+
+\subsection{Model Testing Challenges}
+
+AI outputs are non-deterministic. The same input might produce different outputs. This makes testing harder than traditional software.
+
+Strategies:
+\begin{itemize}
+    \item Test against evaluation sets with clear pass/fail criteria
+    \item Use metrics like accuracy, relevance, and safety scores
+    \item Compare against baselines (how good is ``good''?)
+    \item Include human evaluation for subjective quality
+\end{itemize}
+
+\subsection{User Testing Priorities}
+
+When testing AI features with users, focus on:
+\begin{itemize}
+    \item \textbf{Trust}: Do users trust the AI appropriately?
+    \item \textbf{Utility}: Does the AI actually help them accomplish their goal?
+    \item \textbf{Friction}: Is the AI adding or removing friction?
+    \item \textbf{Recovery}: Can users recover when the AI is wrong?
+\end{itemize}
+
+Watch for users who over-trust (accepting everything) or under-trust (ignoring everything). Both indicate design problems.
+
+\section{Ethical Considerations}
+
+AI products carry ethical responsibilities that traditional products don't. Take them seriously.
+
+\subsection{Bias and Fairness}
+
+AI models can encode and amplify biases from their training data. This can lead to unfair outcomes for certain users.
+
+Questions to ask:
+\begin{itemize}
+    \item Who might be harmed by biased outputs?
+    \item How can we test for bias in our specific use case?
+    \item What mitigation strategies can we implement?
+    \item How do we monitor for bias in production?
+\end{itemize}
+
+This isn't theoretical. Biased AI products have caused real harm. Think about it before you ship.
+
+\subsection{Transparency}
+
+Users have a right to know when they're interacting with AI. In many cases, they also have a right to understand how decisions are being made.
+
+Be transparent about:
+\begin{itemize}
+    \item When AI is being used
+    \item What the AI is doing with user data
+    \item How AI recommendations are generated (at an appropriate level)
+    \item Limitations and potential errors
+\end{itemize}
+
+\subsection{Privacy}
+
+AI features often process sensitive data. Ensure you're handling data appropriately:
+\begin{itemize}
+    \item What data is being sent to AI models?
+    \item Who has access to that data?
+    \item How long is data retained?
+    \item What are users told about data usage?
+    \item Does data handling comply with relevant regulations?
+\end{itemize}
+
+Privacy mistakes with AI can be severe. Data sent to models may be used for training. Conversations may be logged. Be intentional about what you're sharing.
+
+\subsection{Harm Prevention}
+
+AI can be misused. It can also cause unintended harm through normal use.
+
+Think through:
+\begin{itemize}
+    \item How could this feature be misused?
+    \item What harmful outputs could the AI produce?
+    \item What safeguards can prevent misuse or harm?
+    \item What monitoring will detect problems?
+\end{itemize}
+
+Build safety into the design, not as an afterthought.
+
+\section{Launching and Iterating}
+
+AI features benefit from gradual rollout and careful iteration.
+
+\subsection{Staged Rollout}
+
+Don't launch AI features to everyone at once. Stage the rollout:
+\begin{itemize}
+    \item Internal testing first
+    \item Beta users who opt in
+    \item Gradual percentage rollout
+    \item Full launch only after validation
+\end{itemize}
+
+Each stage is an opportunity to catch problems before they affect more users.
+
+\subsection{Monitoring in Production}
+
+AI features need ongoing monitoring that traditional features don't:
+\begin{itemize}
+    \item \textbf{Output quality}: Are outputs meeting quality standards?
+    \item \textbf{User feedback}: Are users reporting problems?
+    \item \textbf{Usage patterns}: Are users engaging as expected?
+    \item \textbf{Failure rates}: How often is the AI failing?
+    \item \textbf{Edge cases}: Are unexpected inputs causing problems?
+\end{itemize}
+
+Set up alerts for concerning patterns. Don't wait for users to complain.
+
+\subsection{Iteration Based on Reality}
+
+Once you have real usage data, iterate based on what you learn:
+\begin{itemize}
+    \item What are the most common failure modes?
+    \item Where are users getting stuck?
+    \item What features are users not using?
+    \item What are users asking for that you didn't anticipate?
+\end{itemize}
+
+AI features often need significant iteration post-launch. Plan for it.
+
+\section{The PM's Role}
+
+In all of this, what specifically is the PM's job?
+
+\subsection{Define Success}
+
+You own the success criteria. What does this feature need to accomplish to be worth maintaining? Get specific about metrics and thresholds.
+
+\subsection{Manage Trade-offs}
+
+AI development involves constant trade-offs. Quality vs. speed. Capability vs. cost. Safety vs. utility. You're the one who makes these calls and communicates them to stakeholders.
+
+\subsection{Maintain User Focus}
+
+It's easy for AI projects to become technology showcases. Keep asking: is this solving the user's problem? Would users miss this if it went away?
+
+\subsection{Coordinate Across Functions}
+
+AI products touch engineering, data science, design, legal, and potentially more. You're the integrator who keeps everyone aligned on goals and progress.
+
+\subsection{Communicate Honestly}
+
+Stakeholders need to understand what AI can and can't do. Set expectations accurately. Surface problems early. Don't oversell or hide limitations.
+
+\section{The Bottom Line}
+
+Building AI products is product management with extra constraints. You need to understand the technology well enough to make good decisions, but you don't need to build the models yourself.
+
+The fundamentals:
+\begin{itemize}
+    \item Start with problems, not technology
+    \item Scope tightly and resist expansion
+    \item Design for AI's limitations
+    \item Test rigorously across the spectrum
+    \item Take ethics seriously
+    \item Launch gradually and iterate based on reality
+\end{itemize}
+
+If you can generate ten flows in a day, you can also generate ten wrong flows in a day. The constraint shifts from production capacity to judgment.
+
+Strategy is the filter that prevents you from shipping noise faster. In AI product development, strategy matters more than ever—because the ability to build impressive-looking features has never been easier, and the ability to build features that actually solve problems hasn't gotten any easier at all.

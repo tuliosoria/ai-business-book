@@ -1,0 +1,188 @@
+% The New Father's Field Manual
+% A Personal Guide to Early Fatherhood
+\documentclass[11pt,a4paper,openright,twoside]{memoir}
+
+% ============================================
+% PACKAGES
+% ============================================
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage[dvipsnames,svgnames,table]{xcolor}
+\usepackage{amsmath,amssymb}
+\usepackage[
+    colorlinks=true,
+    linkcolor=RoyalBlue,
+    citecolor=ForestGreen,
+    urlcolor=Maroon,
+    bookmarks=true,
+    bookmarksnumbered=true
+]{hyperref}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+
+% ============================================
+% CUSTOM COLORS
+% ============================================
+\definecolor{chaptercolor}{RGB}{70, 100, 140}
+\definecolor{insightbg}{RGB}{245, 248, 252}
+\definecolor{insightborder}{RGB}{70, 100, 140}
+\definecolor{storybg}{RGB}{252, 250, 245}
+\definecolor{storyborder}{RGB}{180, 140, 80}
+\definecolor{warningbg}{RGB}{255, 248, 245}
+\definecolor{warningborder}{RGB}{200, 100, 80}
+\definecolor{reflectionbg}{RGB}{248, 252, 248}
+\definecolor{reflectionborder}{RGB}{80, 140, 100}
+
+% ============================================
+% CUSTOM ENVIRONMENTS
+% ============================================
+
+\newenvironment{keyinsight}[1][Key Insight]{%
+    \begin{tcolorbox}[
+        colback=insightbg,
+        colframe=insightborder,
+        title={\textbf{#1}},
+        fonttitle=\sffamily\bfseries,
+        breakable
+    ]
+}{\end{tcolorbox}}
+
+\newenvironment{realstory}[1][From My Experience]{%
+    \begin{tcolorbox}[
+        colback=storybg,
+        colframe=storyborder,
+        title={\textbf{#1}},
+        fonttitle=\sffamily\bfseries,
+        breakable
+    ]
+}{\end{tcolorbox}}
+
+\newenvironment{warning}[1][Watch Out]{%
+    \begin{tcolorbox}[
+        colback=warningbg,
+        colframe=warningborder,
+        title={\textbf{#1}},
+        fonttitle=\sffamily\bfseries,
+        breakable
+    ]
+}{\end{tcolorbox}}
+
+\newenvironment{reflection}[1][Pause and Reflect]{%
+    \begin{tcolorbox}[
+        colback=reflectionbg,
+        colframe=reflectionborder,
+        title={\textbf{#1}},
+        fonttitle=\sffamily\bfseries,
+        breakable
+    ]
+}{\end{tcolorbox}}
+
+\newenvironment{practicaltip}[1][Practical Tip]{%
+    \begin{tcolorbox}[
+        colback=white,
+        colframe=black!60,
+        title={\textbf{#1}},
+        fonttitle=\sffamily\bfseries,
+        breakable
+    ]
+}{\end{tcolorbox}}
+
+% ============================================
+% MEMOIR STYLING
+% ============================================
+
+\chapterstyle{veelo}
+\setlrmarginsandblock{3cm}{2.5cm}{*}
+\setulmarginsandblock{2.5cm}{3cm}{*}
+\checkandfixthelayout
+\pagestyle{headings}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8em}
+
+% ============================================
+% DOCUMENT
+% ============================================
+\begin{document}
+
+\frontmatter
+
+% Title page
+\begin{titlingpage}
+\centering
+\vspace*{3cm}
+{\Huge\bfseries The New Father's Field Manual}\\[1cm]
+{\Large A Personal Guide to Early Fatherhood}\\[3cm]
+{\large Tulio Soria}\\[1cm]
+\vfill
+{\large 2026}
+\end{titlingpage}
+
+% Copyright page
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+Copyright \textcopyright\ 2026 Tulio Soria\\[1em]
+All rights reserved.\\[2em]
+\textit{For my children, and for every father\\
+learning as he goes.}
+\end{center}
+\vspace*{\fill}
+\clearpage
+
+\tableofcontents*
+
+\include{frontmatter/preface}
+
+\mainmatter
+
+% PART I
+\part{The Moment You Become a Father}
+\include{chapters/ch01-day-everything-changed}
+\include{chapters/ch02-identity-shock}
+\include{chapters/ch03-love-at-first-sight}
+\include{chapters/ch04-silent-weight}
+
+% PART II
+\part{The First 100 Days: Survival With Meaning}
+\include{chapters/ch05-sleep-deprivation}
+\include{chapters/ch06-physical-gauntlet}
+\include{chapters/ch07-supporting-mother}
+\include{chapters/ch08-hospital-to-home}
+
+% PART III
+\part{Marriage and Teamwork}
+\include{chapters/ch09-unit-under-fire}
+\include{chapters/ch10-fighting-fair}
+\include{chapters/ch11-division-of-labor}
+
+% PART IV
+\part{The Father You Choose to Become}
+\include{chapters/ch12-presence-skill}
+\include{chapters/ch13-discipline-starts-with-you}
+\include{chapters/ch14-protecting-family}
+\include{chapters/ch15-work-ambition-guilt}
+
+% PART V
+\part{Systems That Actually Work}
+\include{chapters/ch16-father-operating-system}
+\include{chapters/ch17-two-minute-fixes}
+\include{chapters/ch18-support-network}
+
+% PART VI
+\part{Meaning, Legacy, and the Long View}
+\include{chapters/ch19-what-children-remember}
+\include{chapters/ch20-letter-to-new-father}
+
+\backmatter
+\include{backmatter/conclusion}
+
+\end{document}
