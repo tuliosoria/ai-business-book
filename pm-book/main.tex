@@ -1,0 +1,229 @@
+% AI-Powered Product Management
+% Think Faster, Ship Smarter, Lead Through the Shift
+\documentclass[11pt,a4paper,openright,twoside]{memoir}
+
+% ============================================
+% PACKAGES
+% ============================================
+
+% Encoding and fonts
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% Language
+\usepackage[english]{babel}
+
+% Graphics and colors
+\usepackage{graphicx}
+\usepackage[dvipsnames,svgnames,table]{xcolor}
+
+% Code listings (for prompt examples)
+\usepackage{listings}
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    backgroundcolor=\color{gray!10},
+    xleftmargin=1em,
+    framexleftmargin=1em
+}
+
+% Mathematics
+\usepackage{amsmath,amssymb}
+
+% Hyperlinks
+\usepackage[
+    colorlinks=true,
+    linkcolor=RoyalBlue,
+    citecolor=ForestGreen,
+    urlcolor=Maroon,
+    bookmarks=true,
+    bookmarksnumbered=true
+]{hyperref}
+
+% Better tables
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{array}
+
+% Better lists
+\usepackage{enumitem}
+
+% TikZ for diagrams
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, fit, backgrounds}
+
+% Quotations and epigraphs
+\setlength{\epigraphwidth}{0.75\textwidth}
+\setlength{\epigraphrule}{0pt}
+
+% Index
+\usepackage{makeidx}
+\makeindex
+
+% ============================================
+% CUSTOM ENVIRONMENTS
+% ============================================
+
+% Callout boxes using tcolorbox
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+
+\newtcolorbox{practicalbox}[1][]{%
+    colback=green!5,
+    colframe=green!40!black,
+    fonttitle=\bfseries,
+    title=#1,
+    breakable
+}
+
+\newtcolorbox{warningbox}[1][]{%
+    colback=red!5,
+    colframe=red!40!black,
+    fonttitle=\bfseries,
+    title=#1,
+    breakable
+}
+
+\newtcolorbox{insightbox}[1][]{%
+    colback=blue!5,
+    colframe=blue!40!black,
+    fonttitle=\bfseries,
+    title=#1,
+    breakable
+}
+
+% ============================================
+% MEMOIR CUSTOMIZATION
+% ============================================
+
+% Chapter style
+\chapterstyle{madsen}
+
+% Page layout
+\setlrmarginsandblock{3cm}{2.5cm}{*}
+\setulmarginsandblock{2.5cm}{3cm}{*}
+\checkandfixthelayout
+
+% Headers and footers
+\makepagestyle{aipmbook}
+\makeevenhead{aipmbook}{\thepage}{}{\small\leftmark}
+\makeoddhead{aipmbook}{\small\rightmark}{}{\thepage}
+\makeevenfoot{aipmbook}{}{}{}
+\makeoddfoot{aipmbook}{}{}{}
+\pagestyle{aipmbook}
+
+% Chapter/section marks
+\createmark{chapter}{left}{shownumber}{}{. \space}
+\createmark{section}{right}{shownumber}{}{. \space}
+
+% Part styling
+\renewcommand{\partnamefont}{\normalfont\huge\scshape}
+\renewcommand{\partnumfont}{\normalfont\huge\scshape}
+\renewcommand{\parttitlefont}{\normalfont\Huge\bfseries}
+
+% Fix TOC part number width
+\setlength{\cftpartnumwidth}{2.5em}
+
+% ============================================
+% DOCUMENT INFO
+% ============================================
+\title{AI-Powered Product Management\\[0.5em]\large Think Faster, Ship Smarter, Lead Through the Shift}
+\author{Tulio M Soria \and Arthur F Ramos}
+\date{2026}
+
+% ============================================
+% DOCUMENT
+% ============================================
+\begin{document}
+
+% --------------------------------------------
+% FRONT MATTER
+% --------------------------------------------
+\frontmatter
+
+% Title page
+\begin{titlingpage}
+    \centering
+    \vspace*{3cm}
+    {\Huge\bfseries AI-Powered Product Management\par}
+    \vspace{1cm}
+    {\Large Think Faster, Ship Smarter, Lead Through the Shift\par}
+    \vspace{3cm}
+    {\large Tulio Marques Soria\par}
+    \vfill
+    {\large 2026\par}
+\end{titlingpage}
+
+% Copyright page
+\clearpage
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{flushleft}
+\textit{AI-Powered Product Management: Think Faster, Ship Smarter, Lead Through the Shift}\\[1em]
+Copyright \textcopyright{} 2026 Tulio M Soria and Arthur F Ramos\\[1em]
+All rights reserved.\\[2em]
+First Edition
+\end{flushleft}
+\vspace*{\fill}
+\cleardoublepage
+
+% Table of contents
+\tableofcontents
+\cleardoublepage
+
+% Introduction
+\include{frontmatter/introduction}
+
+% --------------------------------------------
+% MAIN MATTER
+% --------------------------------------------
+\mainmatter
+
+% Chapter 1: AI's Timeline from 1940 to 2026
+\include{chapters/ch01-ai-timeline}
+
+% Chapter 2: The New Product Management Landscape
+\include{chapters/ch02-new-landscape}
+
+% Chapter 3: AI Fundamentals for PMs
+\include{chapters/ch03-ai-fundamentals}
+
+% Chapter 4: AI in Action - Upgrading Your Workflow
+\include{chapters/ch04-ai-in-action}
+
+% Chapter 5: Data, Feedback, and Learning Loops
+\include{chapters/ch05-learning-loops}
+
+% Chapter 6: Building AI-Powered Products
+\include{chapters/ch06-building-ai-products}
+
+% Chapter 7: Leading with Leverage
+\include{chapters/ch07-leading-with-leverage}
+
+% Chapter 8: Inspiring Your Team - Navigating Resistance to AI Adoption
+\include{chapters/ch08-inspire-team-adoption}
+
+% Chapter 9: Looking Ahead - Agents, Autonomy, and the Next Interface
+\include{chapters/ch09-looking-ahead}
+
+% Chapter 10: AI Ethics and Legal
+\include{chapters/ch10-ethics-legal}
+
+% --------------------------------------------
+% BACK MATTER
+% --------------------------------------------
+\backmatter
+
+% Conclusion
+\include{backmatter/conclusion}
+
+% References
+\include{backmatter/references}
+
+% Index
+\printindex
+
+\end{document}

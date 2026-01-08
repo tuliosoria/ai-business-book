@@ -1,0 +1,203 @@
+\chapter{AI Fundamentals for PMs}
+
+You don't need to become a machine learning engineer. But you do need to understand what you're working with.
+
+This chapter gives you enough technical context to make smart decisions. Not enough to build a model—enough to ask the right questions, spot the real constraints, and avoid the mistakes that come from treating AI like magic.
+
+\section{What Models Actually Do}
+
+Let's start with the basics. A large language model (LLM) is a statistical system trained on vast amounts of text. It learns patterns: which words tend to follow which other words, how sentences are structured, what kinds of responses match what kinds of prompts.
+
+When you ask a model a question, it's not ``thinking'' in the way you think. It's predicting what a plausible response looks like, based on patterns in its training data. This is important because it explains both the power and the limitations.
+
+The power: models can generate fluent, coherent, contextually appropriate text across an enormous range of topics. They can summarize, translate, explain, brainstorm, and draft. They can handle ambiguity and produce outputs that feel intelligent.
+
+The limitation: they don't ``know'' anything in the way you know things. They don't have beliefs. They don't verify facts. They don't have access to current information unless it's in their training data or explicitly provided. They produce plausible outputs, which is not the same as producing true outputs.
+
+This distinction matters every time you use AI in your work.
+
+\section{The Trade-Off Framework}
+
+Every AI decision involves trade-offs. The sooner you internalize this, the better your decisions will be.
+
+\subsection{Speed vs. Accuracy}
+
+AI is fast. Really fast. You can generate a first draft in seconds that would take you an hour to write from scratch. But speed comes with accuracy risk.
+
+Models make mistakes. They hallucinate facts. They misunderstand context. They produce outputs that sound confident but are wrong. The faster you move, the more likely you are to miss these errors.
+
+The trade-off: you can have fast outputs or verified outputs, but verification takes time. Calibrate based on stakes. For brainstorming, speed wins. For customer-facing content, accuracy wins. For internal documents, find the middle ground.
+
+\subsection{Capability vs. Cost}
+
+More powerful models generally cost more to run. They're also slower. The most capable model isn't always the right choice.
+
+For simple tasks—summarizing a short document, generating a list of options, reformatting text—a smaller, cheaper model often works fine. For complex reasoning, nuanced writing, or handling ambiguity, you might need the heavy artillery.
+
+The trade-off: don't use a sledgehammer for a nail. Match the model to the task. If you're building AI into a product, this becomes a direct cost question. If you're using AI as a personal tool, it's still worth considering—do you really need the premium tier for this task?
+
+\subsection{Context vs. Constraints}
+
+Models have context windows—the amount of text they can consider at once. Bigger context windows let you include more information (documents, conversation history, examples) but they also cost more and can slow down responses.
+
+This creates a constraint: you can't always give the model everything it might need. You have to choose what to include. That choice shapes the output.
+
+The trade-off: more context isn't always better. Sometimes a focused prompt with key information outperforms a bloated prompt with everything. Learn to curate what you feed the model.
+
+\subsection{Customization vs. Generalization}
+
+Out-of-the-box models are generalists. They know a lot about a lot, but they don't know your specific context—your product, your users, your terminology, your constraints.
+
+You can customize through fine-tuning, retrieval-augmented generation (RAG), or careful prompting. Each approach has costs: time to set up, ongoing maintenance, potential for errors in the customization layer.
+
+The trade-off: generic models are faster to deploy but less tailored. Custom setups are more relevant but require investment. Choose based on how specific your needs are and how often they change.
+
+\section{What Models Can't Do}
+
+This is the section most AI enthusiasts skip. Don't skip it.
+
+\subsection{They Can't Verify Facts}
+
+Models don't have a truth detector. They generate plausible text based on patterns. If the pattern suggests that a certain fact is true, they'll state it confidently—whether or not it's actually true.
+
+This means: every factual claim from an AI needs verification. Especially for numbers, dates, names, and technical specifications. The confidence of the statement is not evidence of its accuracy.
+
+\subsection{They Can't Access Real-Time Information}
+
+Unless explicitly connected to live data sources, models only know what was in their training data. They don't know what happened yesterday. They don't know your company's current metrics. They don't know what your competitor announced this morning.
+
+This means: for anything time-sensitive, you need to provide the information or verify against current sources. Don't assume the model knows what's happening now.
+
+\subsection{They Can't Make Decisions for You}
+
+This is the big one. Models can generate options, analyze trade-offs, summarize information, and suggest approaches. They cannot tell you what's right for your specific situation.
+
+Why? Because ``right'' depends on context that the model doesn't fully have: your strategy, your constraints, your stakeholders, your risk tolerance, your values. The model can help you think, but the thinking is still yours.
+
+My rule: AI can propose, but it can't decide. I use it to expand my options, challenge my assumptions, and draft my documents. I don't use it to make choices I'm accountable for.
+
+\subsection{They Can't Replace Judgment}
+
+Related but distinct: models don't have judgment. They don't know when to push back, when to ask clarifying questions, when to say ``this is a bad idea.''
+
+CMR's research on strategic AI tasks captures this limitation precisely: AI struggles with ``tasks requiring multi-step reasoning and human behavioral understanding'' [S1]. A good PM challenges requirements, questions assumptions, and identifies edge cases. AI will do what you ask. That's a feature and a bug. It makes AI useful for execution, but it means you need to provide the judgment layer.
+
+\section{Hallucinations and How to Handle Them}
+
+Let's talk about the elephant in the room.
+
+Models hallucinate. They make things up. They invent citations, create fake statistics, and describe products that don't exist. This isn't a bug that will be fixed—it's a fundamental characteristic of how these systems work.
+
+The NIST AI Risk Management Framework identifies this as a core reliability risk: models can produce ``outputs that are plausible but factually incorrect'' [S30]. The causes are structural. Models are optimizing for plausible outputs, not true outputs. If a plausible response includes a made-up fact, the model will generate it without hesitation. It doesn't know it's making something up.
+
+\subsection{Types of Hallucinations}
+
+\textbf{Factual hallucinations}: The model states something as fact that isn't true. ``The company was founded in 2015'' when it was actually founded in 2018.
+
+\textbf{Citation hallucinations}: The model invents references that don't exist. ``According to a 2023 Harvard study...'' when no such study exists.
+
+\textbf{Capability hallucinations}: The model claims it can do something it can't. ``I can search the web for current information'' when it has no web access.
+
+\textbf{Confidence hallucinations}: The model presents uncertain information with false confidence. No hedging, no caveats, just wrong statements delivered with authority.
+
+\subsection{Mitigation Strategies}
+
+You can't eliminate hallucinations, but you can manage them:
+
+\textbf{Verify important claims}: If a fact matters for your decision, check it against a primary source. Don't trust AI-generated statistics, quotes, or technical specifications without verification.
+
+\textbf{Ask for sources}: When asking AI to summarize research or cite evidence, ask it to provide sources. Then verify those sources exist and say what the AI claims.
+
+\textbf{Use retrieval augmentation}: If you're building AI into products, consider RAG architectures that ground responses in actual documents. This reduces (but doesn't eliminate) hallucination risk.
+
+\textbf{Calibrate trust to stakes}: For low-stakes brainstorming, hallucinations are a minor nuisance. For high-stakes decisions, they're dangerous. Adjust your verification effort accordingly.
+
+\textbf{Build verification into your workflow}: Don't treat verification as optional. Build it into the process. First pass: generate. Second pass: verify. Make this explicit.
+
+\section{Prompt Engineering: The Basics}
+
+Prompting is how you communicate with models. Better prompts get better outputs. Here's what actually matters.
+
+\subsection{Be Specific}
+
+Vague prompts get vague outputs. Instead of ``write a product description,'' try ``write a 100-word product description for a B2B project management tool, targeting engineering managers who are frustrated with tool sprawl, emphasizing simplicity and integration.''
+
+The more context and constraints you provide, the more targeted the output.
+
+\subsection{Provide Examples}
+
+Models learn from patterns. If you want a specific format or style, show examples. ``Here's an example of the tone I want: [example]. Now write something similar for [new topic].''
+
+This is sometimes called few-shot prompting. It works remarkably well for style, format, and structure.
+
+\subsection{Break Complex Tasks into Steps}
+
+Don't ask the model to do everything at once. For complex tasks, break them into steps. First, outline. Then, draft section one. Then, review and revise. Then, draft section two.
+
+This gives you checkpoints to verify and correct before the model builds on mistakes.
+
+\subsection{Tell the Model What Not to Do}
+
+Negative constraints can be as useful as positive ones. ``Don't use jargon. Don't make claims without evidence. Don't exceed 200 words.'' Sometimes telling the model what to avoid is the clearest way to shape the output.
+
+\subsection{Iterate}
+
+Your first prompt rarely produces the best output. Expect to iterate. Refine based on what you get. Add constraints. Provide more context. Show examples of what's not working.
+
+Prompting is a conversation, not a one-shot request.
+
+\section{Framing AI Work as Trade-Offs}
+
+Let me bring this back to PM fundamentals.
+
+Every AI decision is a trade-off decision. When you're deciding whether to use AI for a task, ask:
+
+\begin{itemize}
+    \item What do I gain? (Speed, coverage, variety)
+    \item What do I risk? (Accuracy, nuance, originality)
+    \item What's the verification cost? (Time to check outputs)
+    \item What happens if it's wrong? (Stakes of error)
+\end{itemize}
+
+For low-stakes, high-volume tasks, AI is almost always worth it. For high-stakes, nuanced decisions, AI is a starting point that requires significant human judgment.
+
+The mistake is treating AI as either magic (it can do anything!) or useless (it's just autocomplete!). The reality is in between: it's a powerful tool with specific strengths and specific weaknesses. Your job is to deploy it where the strengths match your needs and the weaknesses are manageable.
+
+\section{The Technical Vocabulary You Need}
+
+You'll hear these terms in conversations with technical colleagues. Here's what they mean in practical terms:
+
+\textbf{LLM (Large Language Model)}: The models that power tools like ChatGPT, Claude, and Gemini. Trained on text, good at generating and understanding language.
+
+\textbf{Fine-tuning}: Taking a general model and training it further on specific data to improve performance on specific tasks.
+
+\textbf{RAG (Retrieval-Augmented Generation)}: A technique that connects models to external documents, allowing them to reference specific information rather than relying only on training data.
+
+\textbf{Context window}: The amount of text a model can consider at once. Bigger windows allow more information but cost more.
+
+\textbf{Token}: The unit of text models work with. Roughly a word or part of a word. Pricing and context limits are often measured in tokens.
+
+\textbf{Temperature}: A setting that controls randomness. Higher temperature means more creative/varied outputs. Lower temperature means more predictable/consistent outputs.
+
+\textbf{Prompt engineering}: The practice of crafting inputs to get better outputs from models.
+
+\textbf{Hallucination}: When models generate false or made-up information.
+
+You don't need to master these concepts. You need to recognize them, understand roughly what they mean, and know when to ask for clarification.
+
+\section{The Bottom Line}
+
+AI is a tool. Like all tools, it has strengths and weaknesses. Like all tools, it rewards users who understand what it's actually doing.
+
+The fundamentals for PMs:
+\begin{itemize}
+    \item Models generate plausible outputs, not true outputs
+    \item Every AI decision is a trade-off
+    \item Verification is not optional for important work
+    \item Better prompts get better outputs
+    \item AI can propose, but it can't decide
+\end{itemize}
+
+The technical depth you need is shallow but important. You don't need to train models. You need to use them intelligently, know their limits, and avoid the mistakes that come from treating them as something they're not.
+
+Leverage is earned through verification. That's the principle. That's the practice. That's how you use AI without outsourcing your judgment.
