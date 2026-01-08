@@ -10,7 +10,13 @@ Let me start with a reframe that changed how I think about product work.
 
 You're not building features. You're building a learning machine.
 
-Every release is an experiment. Every metric is evidence. Every decision is a hypothesis about what users want and what will move the business. The goal isn't to be right on the first try—it's to learn faster than your competition.
+Every release is an experiment. Every metric is evidence. Every decision is a hypothesis about what users want and what will move the business. The goal isn't to be right on the first try---it's to learn faster than your competition.
+
+\begin{insightbox}{Key Insight: The Learning Machine}
+The product isn't the thing you ship. The product is your team's ability to learn. Features are experiments. Metrics are evidence. Releases are hypotheses. The teams that out-learn the competition will eventually out-build them---even if they start behind.
+\end{insightbox}
+
+\noindent (Insert Figure: The Learning Loop---Hypothesis → Prototype → Feedback → Iteration)
 
 In the AI era, this mindset isn't optional. It's survival. When iteration cycles compress from months to weeks to days, the teams that learn fastest win. The teams that cling to long planning cycles and big-bang releases will find themselves perpetually behind.
 
@@ -44,13 +50,7 @@ When I'm deciding what to cut, I ask one question: what gives us learning? Not w
 
 If two features take the same effort, I pick the one that teaches us more about user behavior, even if it's less sexy.
 
-And whenever possible, I run cheap experiments first:
-\begin{itemize}
-    \item A landing page before a product
-    \item A Wizard of Oz test before automation
-    \item A survey before a prototype
-    \item A conversation before a survey
-\end{itemize}
+And whenever possible, I run cheap experiments first. A landing page before a product---you can validate demand without building anything. A Wizard of Oz test before automation---have a human do what the software would do, and see if users care about the outcome. A survey before a prototype---ask people what they want before you guess. A conversation before a survey---talk to five users and learn more than a thousand survey responses would tell you.
 
 AI makes cheap experiments even cheaper. You can generate landing page copy in minutes. You can prototype flows quickly. You can analyze survey responses at scale. Use that speed to run more tests before committing resources.
 
@@ -82,9 +82,13 @@ Build dashboards that show both. Use leading indicators for weekly decisions. Us
 
 For any given initiative, there should be one metric that matters most. Not three. Not a balanced scorecard. One.
 
-This doesn't mean other metrics don't matter. It means that when trade-offs arise—and they will—you know what to optimize for. Clarity beats completeness.
+This doesn't mean other metrics don't matter. It means that when trade-offs arise---and they will---you know what to optimize for. Clarity beats completeness.
 
 When I'm writing a PRD, I include the single metric that tells us if we're delusional. If we can't define success in a week or two, we're probably building a story, not a product.
+
+\begin{insightbox}{Key Insight: The Delusion Metric}
+Every PRD should include what I call the ``delusion metric''---the single number that will tell you, in a week or two, whether your hypothesis is wrong. If you can't name it, you're not ready to build. You're building a narrative, not a product.
+\end{insightbox}
 
 \subsection{Instrumentation as a First-Class Concern}
 
@@ -105,6 +109,8 @@ AI can help here too. Use it to generate instrumentation specs, review event sch
 \section{The Feedback System}
 
 Data tells you what's happening. Feedback tells you why.
+
+\noindent (Insert Figure: The Feedback System---Quantitative + Qualitative Integration)
 
 \subsection{Quantitative + Qualitative}
 
@@ -151,7 +157,11 @@ My personal rule: ship small, learn fast, repeat. It sounds like a slogan until 
 
 The research backs this up. \emph{Accelerate} [S27] found that high-performing teams deploy code 208 times more frequently than low performers, with 106 times faster recovery from failures. That's not a marginal improvement. That's a different operating model.
 
-A tiny release with telemetry beats a big launch with vibes. A bad prototype beats a perfect debate. If you don't have data, you don't have clarity—just louder opinions.
+A tiny release with telemetry beats a big launch with vibes. A bad prototype beats a perfect debate. If you don't have data, you don't have clarity---just louder opinions.
+
+\begin{insightbox}{Key Insight: The 208x Gap}
+High-performing teams don't ship 20\% more often. They ship 208 times more often. That's not incremental improvement---it's a fundamentally different way of working. You can't close that gap with process tweaks. You need a different operating model.
+\end{insightbox}
 
 \subsection{Why Small Works}
 
@@ -254,21 +264,16 @@ Metrics are proxies for user value. If you optimize the proxy at the expense of 
 
 The real upgrade isn't AI. It's honesty. Honest assumptions. Honest metrics. Honest post-mortems.
 
-AI makes it harder to hide behind process because it exposes how much work was just slow writing and slow coordination. If you adopt AI and keep the old habits—vague goals, unclear ownership, roadmap-as-wish-list—you'll simply ship confusion at higher speed.
+AI makes it harder to hide behind process because it exposes how much work was just slow writing and slow coordination. If you adopt AI and keep the old habits---vague goals, unclear ownership, roadmap-as-wish-list---you'll simply ship confusion at higher speed.
 
 If you adopt AI and tighten fundamentals, you'll feel like you gained a superpower.
 
-The fundamentals of learning loops:
-\begin{itemize}
-    \item Ship small and often
-    \item Measure what matters
-    \item Write falsifiable hypotheses
-    \item Learn from failures
-    \item Act on what you learn
-\end{itemize}
+The fundamentals of learning loops come down to five practices: Ship small and often---not because small is inherently virtuous, but because small gives you feedback. Measure what matters---one metric per initiative, not a dashboard of vanity. Write falsifiable hypotheses---predictions that can actually be wrong. Learn from failures---post-mortems without blame, insights that transfer. Act on what you learn---which sounds obvious until you realize how many teams collect data they never use.
 
-In the AI era, your advantage is not having the fanciest model—it's having the fastest learning loop. If you can ship a thin slice, measure behavior, and iterate weekly, you'll beat teams that spend three months polishing a plan that nobody validates.
+In the AI era, your advantage is not having the fanciest model---it's having the fastest learning loop. If you can ship a thin slice, measure behavior, and iterate weekly, you'll beat teams that spend three months polishing a plan that nobody validates.
 
-I'm also trying to apply the same product thinking to my own life: measure, don't guess. When I track spending, calories, or time, I'm not judging myself—I'm collecting data. Shame makes you hide. Data makes you design.
+I'm also trying to apply the same product thinking to my own life: measure, don't guess. When I track spending, calories, or time, I'm not judging myself---I'm collecting data. Shame makes you hide. Data makes you design.
 
 The same principle applies to products. Build the measurement system. Collect the data. Let reality guide your decisions.
+
+The next chapter shifts from individual workflows to team-scale execution. When you're building AI-native products, the dynamics change---what you can prototype, what you should build in-house, and what tradeoffs you'll face. That's where we're headed.

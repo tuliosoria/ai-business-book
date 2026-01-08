@@ -2,7 +2,9 @@
 
 When prototypes become cheap, strategy becomes more important, not less. Because now it's easier than ever to build something that looks impressive and does nothing.
 
-This chapter is about PMing AI products—how to scope them, integrate them, test them, and ship them. Not as a scientist or an engineer, but as a product manager who's accountable for outcomes.
+This chapter is about PMing AI products---how to scope them, integrate them, test them, and ship them. Not as a scientist or an engineer, but as a product manager who's accountable for outcomes.
+
+\noindent (Insert Figure: The AI Product Development Cycle---Scope, Design, Build, Test, Launch, Iterate)
 
 \section{The AI Product Reality Check}
 
@@ -15,6 +17,10 @@ Most AI features don't move metrics as much as hoped. Deloitte's State of Genera
 Most AI features are harder to maintain than expected. Models need updating. Edge cases need handling. Users find ways to break things that nobody anticipated. Google's Rules of ML puts it bluntly: ``If you think machine learning will give you a 100\% boost, a heuristic will get you 50\% of the way there'' [S36].
 
 None of this means you shouldn't build AI features. It means you should build them with eyes open. The hype is real. The challenges are also real.
+
+\begin{insightbox}{Key Insight: The Demo Gap}
+Most AI features don't work as well as the demo. The demo shows the best case. Production shows the distribution of cases---including the confusing, the wrong, and the embarrassing. Plan for the distribution, not the highlight reel.
+\end{insightbox}
 
 \section{Scoping AI Features}
 
@@ -35,13 +41,11 @@ If you can't answer these clearly, you're not ready to build. You're ready to ge
 
 \subsection{The AI Advantage Test}
 
-AI should do one of these things for your feature:
-\begin{itemize}
-    \item \textbf{Make something possible that wasn't before}: Truly new capabilities that didn't exist
-    \item \textbf{Make something faster that was slow}: Automation of tasks that were manual
-    \item \textbf{Make something better that was mediocre}: Quality improvement over existing solutions
-    \item \textbf{Make something cheaper that was expensive}: Cost reduction for existing capabilities
-\end{itemize}
+AI should do one of these things for your feature: Make something possible that wasn't before---truly new capabilities that didn't exist. Make something faster that was slow---automation of tasks that were manual. Make something better that was mediocre---quality improvement over existing solutions. Make something cheaper that was expensive---cost reduction for existing capabilities.
+
+\begin{insightbox}{Key Insight: The Four Justifications}
+Every AI feature should pass the advantage test: Does it make something possible, faster, better, or cheaper? If you can't clearly articulate which one, you're building a demo, not a product. Sometimes a well-designed form beats a chatbot. Sometimes a simple rule beats a model.
+\end{insightbox}
 
 If your AI feature doesn't clearly fit one of these, question whether AI is the right approach. Sometimes a well-designed form beats a chatbot. Sometimes a simple rule beats a model. Don't use AI because it's impressive. Use it because it's effective.
 
@@ -57,29 +61,23 @@ The tightest scope that still tests the hypothesis. That's what you're aiming fo
 
 AI products fail when they're designed for the best case instead of the real case. Good AI product design accounts for limitations.
 
+\noindent (Insert Figure: Designing for AI Limitations---Uncertainty, Failure, Trust)
+
 \subsection{Design for Uncertainty}
 
 AI outputs are probabilistic. They're not always right, and they're not always confident when they should be.
 
-Design implications:
-\begin{itemize}
-    \item \textbf{Show confidence levels when appropriate}: Let users know when the AI is uncertain
-    \item \textbf{Make editing easy}: Users should be able to quickly correct AI outputs
-    \item \textbf{Provide alternatives}: Offer multiple options rather than a single ``answer''
-    \item \textbf{Enable override}: Users should always be able to reject AI suggestions
-\end{itemize}
+Design for this reality by showing confidence levels when appropriate---let users know when the AI is uncertain. Make editing easy---users should be able to quickly correct AI outputs. Provide alternatives---offer multiple options rather than a single ``answer.'' Enable override---users should always be able to reject AI suggestions.
 
 \subsection{Design for Failure}
 
-AI will fail. Sometimes it will fail badly. Design for this.
-\begin{itemize}
-    \item \textbf{Graceful degradation}: What happens when the AI is wrong or unavailable?
-    \item \textbf{Clear error states}: Help users understand what went wrong and what to do
-    \item \textbf{Feedback mechanisms}: Let users report problems easily
-    \item \textbf{Human fallback}: Have a path to human assistance for complex failures
-\end{itemize}
+AI will fail. Sometimes it will fail badly. Design for graceful degradation---what happens when the AI is wrong or unavailable? Create clear error states that help users understand what went wrong and what to do. Build feedback mechanisms so users can report problems easily. Maintain a human fallback path for complex failures.
 
 The goal isn't perfect AI. It's AI that fails gracefully and recovers well.
+
+\begin{insightbox}{Key Insight: The Graceful Failure Principle}
+The quality of your AI feature isn't measured by how it performs when it's right. It's measured by what happens when it's wrong. Design the failure path before you design the happy path.
+\end{insightbox}
 
 \subsection{Design for Trust Calibration}
 
@@ -311,16 +309,12 @@ Stakeholders need to understand what AI can and can't do. Set expectations accur
 
 Building AI products is product management with extra constraints. You need to understand the technology well enough to make good decisions, but you don't need to build the models yourself.
 
-The fundamentals:
-\begin{itemize}
-    \item Start with problems, not technology
-    \item Scope tightly and resist expansion
-    \item Design for AI's limitations
-    \item Test rigorously across the spectrum
-    \item Take ethics seriously
-    \item Launch gradually and iterate based on reality
-\end{itemize}
+The fundamentals come down to discipline: Start with problems, not technology. Scope tightly and resist the constant pressure to expand. Design for AI's limitations, not its best-case demos. Test rigorously across the spectrum---unit, integration, model, and user. Take ethics seriously---bias, privacy, transparency, and harm prevention. Launch gradually and iterate based on reality, not hopes.
 
 If you can generate ten flows in a day, you can also generate ten wrong flows in a day. The constraint shifts from production capacity to judgment.
 
-Strategy is the filter that prevents you from shipping noise faster. In AI product development, strategy matters more than ever—because the ability to build impressive-looking features has never been easier, and the ability to build features that actually solve problems hasn't gotten any easier at all.
+Strategy is the filter that prevents you from shipping noise faster. In AI product development, strategy matters more than ever---because the ability to build impressive-looking features has never been easier, and the ability to build features that actually solve problems hasn't gotten any easier at all.
+
+\noindent (Insert Table: AI Feature Checklist---Questions to Answer Before Building)
+
+The next chapter shifts perspective. So far we've talked about your work and your products. But PMs don't work alone. They lead through influence, coordinate across functions, and set direction for teams. In the AI era, that leadership role changes. That's what we'll explore next.

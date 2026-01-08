@@ -4,6 +4,8 @@ Here's the uncomfortable truth: the AI boom was built partially on unresolved le
 
 This isn't about being righteous. It's about not building on sand.
 
+\noindent (Insert Figure: The AI Legal Landscape---Copyright, Privacy, Safety, Compliance)
+
 \section{The Copyright Problem That Won't Go Away}
 
 Your model was trained on billions of words from the internet. Probably without permission. Definitely without individual consent. This is how models got smart, but it created a legal gray area that's now becoming a legal battlefield [S44].
@@ -35,6 +37,10 @@ If your model was trained on copyrighted data without permission, you're exposed
 \item \textbf{Regulatory risk}: Regulators might ban the practice and force retraining.
 \item \textbf{Reputation risk}: Users might object to models trained on copyrighted work without consent.
 \end{enumerate}
+
+\begin{insightbox}{Key Insight: Leverage Earned, Not Verified}
+Copyrighted training data is leverage earned but not yet verified. The verification is coming in courts. You likely can't change history. But you can make honest choices going forward: use licensed data, document sources, have a legal strategy, be transparent about what you're doing.
+\end{insightbox}
 
 \subsection{What You Can Do}
 
@@ -120,15 +126,11 @@ This isn't bureaucratic theater. It's the difference between "we deployed an AI 
 
 \subsection{Bias Is Not a Binary}
 
-You will ship a biased model. You will make decisions that disproportionately affect some groups. The goal isn't zero bias. The ODNI AI Ethics Framework emphasizes that ethical AI requires continuous monitoring, not one-time certification [S47]. The goal is:
+You will ship a biased model. You will make decisions that disproportionately affect some groups. The goal isn't zero bias. The ODNI AI Ethics Framework emphasizes that ethical AI requires continuous monitoring, not one-time certification [S47]. The goal is measurement (actually measure bias across demographic groups), transparency (tell users where bias might exist), intentionality (make explicit choices about trade-offs), recourse (give users a way to challenge decisions), and iteration (bias doesn't get solved once---it's an ongoing practice).
 
-\begin{enumerate}
-\item \textbf{Measurement}: Actually measure bias across demographic groups. Don't assume fairness.
-\item \textbf{Transparency}: Tell users where bias might exist and how the model is used.
-\item \textbf{Intentionality}: Make explicit choices about trade-offs. If accuracy for one group is worse, say so and justify it.
-\item \textbf{Recourse}: Give users a way to challenge or appeal decisions.
-\item \textbf{Iteration}: Bias doesn't get solved once. It's an ongoing practice.
-\end{enumerate}
+\begin{insightbox}{Key Insight: The Bias Practice}
+Bias isn't a bug you fix once. It's an ongoing practice: measure across demographic groups, acknowledge limitations, make explicit trade-off choices, provide recourse, update continuously. The dangerous approach is to deploy, assume you're fair, and move on. The defensible approach is to document your testing, acknowledge limitations, and iterate.
+\end{insightbox}
 
 The dangerous approach: deploy, assume you're fair, move on. The regulatory approach: document your bias testing, acknowledge limitations, update continuously.
 
@@ -186,6 +188,10 @@ The most defensible position is the one you can explain to a reporter, a regulat
 This is uncomfortable. It means admitting your model isn't perfect. It means accepting that someone will be hurt by it even though you tried to minimize harm.
 
 But it's the position that survives litigation and regulatory scrutiny.
+
+\begin{insightbox}{Key Insight: The Defensible Position}
+The most defensible position is the one you can explain to a reporter, a regulator, or a victim. Not perfection---honest acknowledgment of limitations, documented testing, explicit trade-off choices, and clear recourse. Write your docs as if regulators will read them. They probably will.
+\end{insightbox}
 
 \subsection{The Honest Checklist}
 
@@ -269,4 +275,8 @@ What won't change: the tension between speed and safety, between innovation and 
 
 Your job is to navigate that tension honestly. Not to solve it perfectly. But to acknowledge it, measure it, and make decisions you can defend.
 
+\noindent (Insert Table: The Honest Checklist---Questions to Answer Before Shipping AI)
+
 That's what governance looks like in the AI era. Not permission. Not restriction. Just honesty about what you're building, who it affects, and what could go wrong.
+
+This concludes the main content. The conclusion that follows synthesizes everything---the mindset shifts, the practical frameworks, the leadership principles---into a coherent picture of what it means to be a PM in the AI era.

@@ -2,7 +2,11 @@
 
 You don't need to become a machine learning engineer. But you do need to understand what you're working with.
 
-This chapter gives you enough technical context to make smart decisions. Not enough to build a model—enough to ask the right questions, spot the real constraints, and avoid the mistakes that come from treating AI like magic.
+This chapter gives you enough technical context to make smart decisions. Not enough to build a model---enough to ask the right questions, spot the real constraints, and avoid the mistakes that come from treating AI like magic.
+
+Think of this as the mental model chapter. Once you understand how these systems actually work, their behavior becomes predictable. Their failures make sense. Their value becomes clear.
+
+\noindent (Insert Figure: AI Decision Framework---What PMs Need to Know)
 
 \section{What Models Actually Do}
 
@@ -15,6 +19,10 @@ The power: models can generate fluent, coherent, contextually appropriate text a
 The limitation: they don't ``know'' anything in the way you know things. They don't have beliefs. They don't verify facts. They don't have access to current information unless it's in their training data or explicitly provided. They produce plausible outputs, which is not the same as producing true outputs.
 
 This distinction matters every time you use AI in your work.
+
+\begin{insightbox}{Key Insight: Plausible vs. True}
+The single most important thing to understand about LLMs: they generate \textbf{plausible} outputs, not \textbf{true} outputs. A response can be fluent, confident, and completely wrong. The model doesn't know the difference. You have to.
+\end{insightbox}
 
 \section{The Trade-Off Framework}
 
@@ -90,6 +98,12 @@ Models hallucinate. They make things up. They invent citations, create fake stat
 
 The NIST AI Risk Management Framework identifies this as a core reliability risk: models can produce ``outputs that are plausible but factually incorrect'' [S30]. The causes are structural. Models are optimizing for plausible outputs, not true outputs. If a plausible response includes a made-up fact, the model will generate it without hesitation. It doesn't know it's making something up.
 
+\begin{insightbox}{Key Insight: Hallucination Is a Feature, Not a Bug}
+Hallucination isn't a temporary flaw that will be fixed in the next version. It's a structural consequence of how these models work. They're pattern-completion engines, not truth-verification engines. Plan accordingly. Build verification into your workflow, not as an afterthought, but as a core step.
+\end{insightbox}
+
+\noindent (Insert Table: Types of Hallucinations and Mitigation Strategies)
+
 \subsection{Types of Hallucinations}
 
 \textbf{Factual hallucinations}: The model states something as fact that isn't true. ``The company was founded in 2015'' when it was actually founded in 2018.
@@ -150,18 +164,13 @@ Prompting is a conversation, not a one-shot request.
 
 Let me bring this back to PM fundamentals.
 
-Every AI decision is a trade-off decision. When you're deciding whether to use AI for a task, ask:
+Every AI decision is a trade-off decision. When you're deciding whether to use AI for a task, run through a quick mental checklist. What do you gain? Usually speed, coverage, or variety in options. What do you risk? Typically accuracy, nuance, or originality. What's the verification cost? How much time will you spend checking outputs? And what happens if it's wrong? What are the stakes of an undetected error?
 
-\begin{itemize}
-    \item What do I gain? (Speed, coverage, variety)
-    \item What do I risk? (Accuracy, nuance, originality)
-    \item What's the verification cost? (Time to check outputs)
-    \item What happens if it's wrong? (Stakes of error)
-\end{itemize}
-
-For low-stakes, high-volume tasks, AI is almost always worth it. For high-stakes, nuanced decisions, AI is a starting point that requires significant human judgment.
+For low-stakes, high-volume tasks, AI is almost always worth it. The verification cost is low, the consequences of errors are minimal, and the speed gains compound. For high-stakes, nuanced decisions---anything customer-facing, strategic, or legally significant---AI is a starting point that requires significant human judgment.
 
 The mistake is treating AI as either magic (it can do anything!) or useless (it's just autocomplete!). The reality is in between: it's a powerful tool with specific strengths and specific weaknesses. Your job is to deploy it where the strengths match your needs and the weaknesses are manageable.
+
+\noindent (Insert Figure: AI Task Suitability Matrix---Stakes vs. Volume)
 
 \section{The Technical Vocabulary You Need}
 
@@ -189,15 +198,12 @@ You don't need to master these concepts. You need to recognize them, understand 
 
 AI is a tool. Like all tools, it has strengths and weaknesses. Like all tools, it rewards users who understand what it's actually doing.
 
-The fundamentals for PMs:
-\begin{itemize}
-    \item Models generate plausible outputs, not true outputs
-    \item Every AI decision is a trade-off
-    \item Verification is not optional for important work
-    \item Better prompts get better outputs
-    \item AI can propose, but it can't decide
-\end{itemize}
+The fundamentals for PMs come down to five principles. First, models generate plausible outputs, not true outputs---so verification isn't optional. Second, every AI decision is a trade-off between speed, accuracy, and verification cost. Third, better prompts get better outputs, and prompting is a skill worth developing. Fourth, AI can propose but it can't decide---the judgment is still yours. Fifth, leverage is earned through verification, not assumed through adoption.
 
 The technical depth you need is shallow but important. You don't need to train models. You need to use them intelligently, know their limits, and avoid the mistakes that come from treating them as something they're not.
 
-Leverage is earned through verification. That's the principle. That's the practice. That's how you use AI without outsourcing your judgment.
+\begin{insightbox}{Key Insight: The Verification Principle}
+Leverage is earned through verification. That's the principle. That's the practice. That's how you use AI without outsourcing your judgment. The teams that get value from AI aren't the ones that trust it most---they're the ones that verify it systematically.
+\end{insightbox}
+
+With this foundation in place, the next chapter shows you how to put these principles into practice. We'll walk through specific workflows where AI adds real value---and the verification habits that make that value stick.
