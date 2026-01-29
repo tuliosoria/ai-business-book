@@ -1,5 +1,34 @@
 # Copilot Instructions for AI Business Book Repository
 
+> **⚠️ CRITICAL: These are LaTeX books for NON-TECHNICAL business readers. NO CODE. NO JARGON. Business examples ONLY.**
+
+## Origin Story & Mission
+
+This project was born from frustration: most AI books are either too technical (written by engineers for engineers) or too superficial (buzzword-filled fluff). These books fill the gap—**practical AI guidance for business professionals who will never write code but need to make smart AI decisions.**
+
+**The author's philosophy:** "If a CEO can't read this on a flight and immediately see how to apply it Monday morning, we've failed."
+
+## Who This Is For
+
+| Audience | Reading Level | What They Know | What They DON'T Know |
+|----------|---------------|----------------|----------------------|
+| C-suite executives | Harvard Business Review | Strategy, P&L, leadership | APIs, models, training data |
+| Department heads | Wall Street Journal | Team management, budgets | Machine learning vs. deep learning |
+| Product managers | Fast Company | Roadmaps, user stories | Neural networks, fine-tuning |
+| Operations leaders | McKinsey reports | Process optimization | Python, JSON, prompt engineering |
+
+**Assumed knowledge:** Business fundamentals (ROI, KPIs, stakeholder management). **Assumed ignorance:** Anything requiring a computer science degree.
+
+## Content Philosophy: What Makes These Books Different
+
+1. **No code, ever.** Not even pseudocode. Exception: simple English prompt templates.
+2. **Honest about limitations.** AI fails. We say so. No hype, no "AI will revolutionize everything."
+3. **ROI-first framing.** Every concept tied to business value: "This saves 4 hours/week per analyst."
+4. **Decision frameworks over features.** Not "here's what GPT-4 can do" but "here's how to decide if AI fits your use case."
+5. **Real examples from real industries.** Banking, healthcare, retail, manufacturing—not software companies.
+
+**Tone:** Authoritative but accessible. Like a trusted consultant, not a professor or salesperson.
+
 ## Project Overview
 
 This repository contains **multiple book projects** written in LaTeX using the `memoir` document class. It also includes a React/Vite web application for book reading/editing.
@@ -125,6 +154,24 @@ The web app allows reading/editing book content without LaTeX knowledge, lowerin
 | Acknowledge AI limitations | Oversell capabilities |
 | Provide actionable frameworks | Give abstract theory |
 | Include exercises | Leave readers passive |
+
+### Chapter Structure Pattern & Themes
+
+Every chapter follows a consistent arc designed for busy executives:
+
+1. **Hook (1 page):** Start with a relatable business problem or surprising statistic
+2. **Context (2-3 pages):** Why this matters NOW for their business
+3. **Framework (3-5 pages):** The core mental model or decision process
+4. **Application (3-5 pages):** Real-world examples from non-tech industries
+5. **Pitfalls (1-2 pages):** What goes wrong and how to avoid it
+6. **Action items (1 page):** Specific next steps for Monday morning
+
+**Key themes across all chapters:**
+- AI as a tool, not magic—requires human judgment
+- Start small, prove value, then scale
+- Governance and ethics aren't optional extras
+- Build internal capability, don't just outsource
+- Measure twice, deploy once
 
 ### Chapter Structure Template
 

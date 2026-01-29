@@ -1,0 +1,14 @@
+{
+  "cases": [
+    {
+      "id": "project-overview",
+      "prompt": "What is this project about?",
+      "expectation": "Should mention LaTeX books, AI business, project management, or non-technical audience"
+    },
+    {
+      "id": "tech-stack",
+      "prompt": "What technologies does this project use?",
+      "expectation": "Should mention LaTeX, React, or Vite"
+    }
+  ]
+}
