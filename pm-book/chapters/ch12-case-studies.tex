@@ -1,0 +1,210 @@
+\chapter{Case Studies: AI in the Real World}
+
+Theory is useful. Reality is better.
+
+This chapter presents four case studies from real product teams navigating AI adoption. Names and some details have been changed, but the patterns are authentic. Each story illustrates principles from earlier chapters---and the messy reality of applying them.
+
+\section{Case Study 1: The Discovery Acceleration}
+
+\subsection{The Situation}
+
+Nexus Health, a B2B healthcare software company, had a discovery problem. Their product team spent six weeks on average between identifying a problem and having a testable hypothesis. By the time they validated anything, the quarter was half over.
+
+Maria, a senior PM, was tasked with reducing this cycle. Her team of three PMs handled a portfolio of features for hospital administrators---complex workflows, regulatory constraints, skeptical users.
+
+\subsection{The Approach}
+
+Maria didn't start with AI. She started with measurement. She tracked where time actually went during discovery:
+\begin{itemize}
+    \item 2 weeks scheduling and conducting interviews
+    \item 1.5 weeks synthesizing interview notes
+    \item 1 week drafting initial requirements
+    \item 1.5 weeks getting stakeholder alignment
+\end{itemize}
+
+The synthesis and drafting phases were the obvious targets for AI acceleration.
+
+Maria introduced a simple workflow:
+\begin{enumerate}
+    \item Record all interviews (with consent) and auto-transcribe
+    \item Feed transcripts to Claude with a structured prompt asking for themes, pain points, and quotes
+    \item Use the AI synthesis as a first draft, then validate against raw transcripts
+    \item Generate PRD skeletons from validated insights
+\end{enumerate}
+
+\subsection{The Results}
+
+After three months:
+\begin{itemize}
+    \item Synthesis time dropped from 1.5 weeks to 2 days
+    \item PRD drafting dropped from 1 week to 3 days
+    \item Overall discovery cycle compressed from 6 weeks to 2.5 weeks
+    \item Team conducted 40\% more discovery cycles per quarter
+\end{itemize}
+
+But the numbers don't capture the real win. Maria's team started testing assumptions they previously would have shipped as guesses. One feature that seemed obvious in the old process was invalidated in week two of the new process---saving an estimated three months of development time.
+
+\subsection{The Lesson}
+
+\begin{insightbox}{Key Insight: Measure Before You Accelerate}
+Maria succeeded because she measured first. She knew exactly where time was going and targeted AI at the bottlenecks. Teams that adopt AI without measurement often accelerate the wrong things---or can't prove the value of what they've done.
+\end{insightbox}
+
+\subsection{What Almost Went Wrong}
+
+In month two, Maria's team got sloppy. They started trusting AI summaries without checking transcripts. A critical insight about workflow friction was buried in the transcripts but missed by the AI synthesis. They almost shipped a solution that ignored the core problem.
+
+Maria instituted a rule: for any high-stakes decision, at least one team member must verify AI synthesis against primary sources. Speed is valuable. Accuracy is essential.
+
+\section{Case Study 2: The PRD Factory}
+
+\subsection{The Situation}
+
+Velocity Labs was a fast-growing fintech startup with a PM team that embraced AI enthusiastically. Within two months of ChatGPT's release, they had integrated it into every workflow. PRDs, user stories, competitive analyses---everything flowed through AI.
+
+Their output was impressive. The team of four PMs produced 47 PRDs in a single quarter. Leadership was thrilled with the productivity.
+
+Then they looked at the results.
+
+\subsection{The Problem}
+
+Of those 47 PRDs:
+\begin{itemize}
+    \item 12 were built and shipped
+    \item 8 moved metrics meaningfully
+    \item 4 were considered successful enough to maintain
+    \item 31 sat in a folder, never implemented
+    \item 4 features were built and then rolled back
+\end{itemize}
+
+The team had become a PRD factory. They could generate documents faster than anyone could evaluate them. Strategy became an afterthought. The question ``should we build this?'' got lost in the rush to answer ``what should this look like?''
+
+One PM, reflecting on the quarter, admitted: ``We were so excited about how fast we could write that we forgot to think about what we should write.''
+
+\subsection{The Diagnosis}
+
+The root cause wasn't AI---it was incentives. The team was implicitly rewarded for output volume. More PRDs felt like more progress. AI made it easy to produce volume, so volume exploded.
+
+But volume without strategy is noise. The team had amplified their existing tendency toward feature churn. AI didn't create the problem. It exposed it.
+
+\subsection{The Fix}
+
+The VP of Product instituted three changes:
+\begin{enumerate}
+    \item \textbf{The One-Sentence Gate}: No PRD could be started without a one-sentence problem statement approved by a peer. What user, what moment, what pain, what outcome.
+    \item \textbf{Outcome Tracking}: Every shipped feature was tracked for six months. PMs were evaluated on outcome metrics, not output volume.
+    \item \textbf{PRD Budget}: Each PM could have a maximum of three active PRDs. To start a new one, you had to close or abandon an existing one.
+\end{enumerate}
+
+\subsection{The Lesson}
+
+\begin{insightbox}{Key Insight: AI Amplifies Direction}
+Velocity Labs learned the hard way that AI is a multiplier, not a compass. If your direction is wrong, AI helps you go wrong faster. The fix wasn't to use less AI---it was to invest more in strategy before using AI at all. The one-sentence gate became their most valuable process change.
+\end{insightbox}
+
+\section{Case Study 3: The Skeptic's Conversion}
+
+\subsection{The Situation}
+
+James had been a PM for twelve years. He'd seen technologies come and go. When AI hype peaked in 2023, he was publicly skeptical.
+
+``It's autocomplete with better marketing,'' he told his team. ``I've been doing this job for over a decade. I don't need a chatbot to tell me how to write a spec.''
+
+His team at Meridian Software respected him. When he dismissed AI tools, they followed his lead. While other teams experimented, Meridian's product org stayed traditional.
+
+\subsection{The Turning Point}
+
+Six months in, James noticed something uncomfortable. Teams using AI were shipping faster. Not just faster---they were running more experiments, catching problems earlier, and somehow finding time for strategic thinking that his team always postponed.
+
+A junior PM from another team transferred to his group. She asked, hesitantly, if she could keep using AI tools. James said no. Two weeks later, she came to him frustrated: ``I'm spending three hours on work that used to take thirty minutes. I'm not doing worse work. I'm just doing it slower.''
+
+James decided to try AI himself---privately, without telling his team.
+
+\subsection{The Experiment}
+
+James started with something low-risk: generating interview questions. He fed context about a user segment and asked for twenty questions he might not have thought of.
+
+The output surprised him. Not because every question was brilliant, but because three questions were genuinely novel. Angles he wouldn't have considered. Not better than his own questions---but different in useful ways.
+
+He tried summarizing a batch of support tickets. The AI missed nuance, but it correctly identified the top three themes in ten minutes. His manual process would have taken two hours.
+
+Over the next month, James experimented quietly. He found AI useful for first drafts (which he heavily edited), brainstorming (which he filtered aggressively), and synthesis (which he always verified).
+
+\subsection{The Shift}
+
+James's public position evolved. First: ``It's a tool, not magic.'' Then: ``It's useful for some things.'' Finally: ``We should all be using this for the right tasks.''
+
+He created a team playbook documenting which tasks benefited from AI and which didn't. He was specific about verification requirements. He framed AI as ``a junior assistant who works fast and sometimes hallucinates.''
+
+His team adopted AI, but with guardrails shaped by James's initial skepticism. They avoided the Velocity Labs trap of over-production because James kept asking: ``But is this the right thing to build?''
+
+\subsection{The Lesson}
+
+\begin{insightbox}{Key Insight: Healthy Skepticism Becomes Healthy Adoption}
+James's skepticism wasn't wrong---it was incomplete. His critical eye, applied to AI adoption, produced better guardrails than enthusiastic adoption without critique. The best AI users aren't true believers. They're skeptics who've verified value and set boundaries.
+\end{insightbox}
+
+\section{Case Study 4: The AI Feature That Failed}
+
+\subsection{The Situation}
+
+CloudSync, a project management tool, decided to add an AI feature: automated task prioritization. The pitch was compelling: ``Let AI analyze your tasks, deadlines, dependencies, and team capacity, then automatically prioritize your backlog.''
+
+The demo was impressive. Engineers built a sophisticated model that considered dozens of factors. Beta users were excited. The launch was planned for maximum visibility.
+
+\subsection{The Launch}
+
+The feature launched to 10\% of users. Initial engagement was high. Users clicked on the AI prioritization button. They saw the reordered backlog.
+
+Then they manually re-prioritized everything.
+
+Within two weeks, usage patterns were clear:
+\begin{itemize}
+    \item 78\% of users who tried the feature tried it only once
+    \item Of repeat users, 91\% made significant manual changes after AI prioritization
+    \item Support tickets about ``wrong priorities'' spiked
+    \item NPS for users exposed to the feature dropped 12 points
+\end{itemize}
+
+\subsection{The Diagnosis}
+
+The team conducted emergency user research. What they learned was humbling.
+
+First, prioritization is personal. What the AI thought was ``most important'' didn't match what users felt was most important. Users had context the AI couldn't access: political dynamics, personal preferences, unstated dependencies.
+
+Second, the feature felt like a loss of control. Users chose project management tools specifically to feel in control. Having AI reorder their work felt threatening, not helpful.
+
+Third, the value proposition was backwards. Users didn't want AI to decide for them. They wanted AI to help them decide better.
+
+\subsection{The Pivot}
+
+The team pivoted the feature:
+\begin{itemize}
+    \item Instead of auto-prioritizing, AI now suggests factors the user might have missed (``This task blocks three others'')
+    \item Instead of reordering the backlog, AI highlights potential conflicts (``These deadlines seem incompatible'')
+    \item Instead of deciding, AI asks questions (``Have you considered the dependency on the API team?'')
+\end{itemize}
+
+The repositioned feature---now called ``Priority Insights''---had 3x the retention of the original. Users felt augmented, not overruled.
+
+\subsection{The Lesson}
+
+\begin{insightbox}{Key Insight: Augment, Don't Replace Judgment}
+CloudSync's failure wasn't technical---it was conceptual. They built AI that replaced user judgment instead of augmenting it. The lesson applies broadly: AI features work best when they expand what users can do, not when they take over what users want to do themselves.
+\end{insightbox}
+
+\section{Patterns Across Cases}
+
+These four cases share common themes:
+
+\textbf{Measurement matters.} Maria succeeded because she measured. Velocity Labs failed because they measured output instead of outcomes.
+
+\textbf{Strategy before speed.} AI accelerates whatever direction you're heading. Make sure the direction is right before you step on the gas.
+
+\textbf{Skepticism is healthy.} James's critical eye produced better adoption than uncritical enthusiasm.
+
+\textbf{Augment, don't replace.} CloudSync learned that users want AI to help them think, not think for them.
+
+\textbf{Verification is non-negotiable.} Every case involved mistakes caught (or not caught) through verification. The ones who verified succeeded. The ones who didn't paid for it.
+
+These patterns appear throughout this book because they appear throughout reality. AI is powerful. Power requires responsibility. The responsibility is yours.
