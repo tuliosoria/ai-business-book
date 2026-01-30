@@ -181,3 +181,16 @@ cd book && pdflatex -interaction=nonstopmode main.tex 2>&1 | grep -E "^!|Output 
 # Full compile with TOC
 cd book && pdflatex main.tex && pdflatex main.tex
 ```
+
+---
+
+## Skills (Domain-Specific Instructions)
+
+This project has specialized skills in `.github/skills/`:
+
+| Skill | Purpose | When to use |
+|-------|---------|-------------|
+| `latex-book-authoring` | LaTeX memoir class, custom environments, compilation | Writing/editing book content |
+| `non-technical-writing` | Business audience writing, avoiding jargon, ROI framing | Any content creation |
+
+**Read the relevant SKILL.md before working in that domain.**
